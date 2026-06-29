@@ -1,0 +1,77 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background: rgba(201, 170, 108, 0.3);
+    color: #fff;
+  }
+}
+
+@keyframes metalFlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 260% 50%;
+  }
+}
+
+@keyframes flLineGrow {
+  0% {
+    width: 0;
+    opacity: 0;
+  }
+  100% {
+    width: 56px;
+    opacity: 1;
+  }
+}
+
+.metal-logo {
+  background: linear-gradient(
+    105deg,
+    #6b7686 0%,
+    #c4ccd8 14%,
+    #ffffff 27%,
+    #efe6d2 40%,
+    #c9aa6c 50%,
+    #f1e8d4 58%,
+    #ffffff 70%,
+    #aeb7c4 85%,
+    #d7dee6 100%
+  );
+  background-size: 260% 100%;
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  color: transparent;
+  animation: metalFlow 7s linear infinite;
+  filter: drop-shadow(0 3px 16px rgba(0, 0, 0, 0.5));
+  display: inline-block;
+  padding-bottom: 6px;
+  padding-right: 6px;
+}
+
+.line-grow {
+  animation: flLineGrow 1s ease forwards;
+}
+
+.card-hover {
+  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px);
+  border-color: rgba(201, 170, 108, 0.4);
+  background: rgba(201, 170, 108, 0.04);
+}
