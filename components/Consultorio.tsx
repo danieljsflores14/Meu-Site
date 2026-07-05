@@ -216,50 +216,37 @@ export default function Consultorio() {
           </a>
         </div>
 
-        {/* Image placeholder */}
-        <div
-          style={{
-            position: 'relative',
-            aspectRatio: '4 / 3',
-            borderRadius: '4px',
-            overflow: 'hidden',
-            border: '1px solid rgba(255,255,255,0.08)',
-            backgroundImage:
-              'repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 12px, rgba(255,255,255,0.012) 12px, rgba(255,255,255,0.012) 24px)',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-          }}
-        >
-          <div style={{ textAlign: 'center', padding: '24px' }}>
-            <svg
-              width="34"
-              height="34"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="#c9aa6c"
-              strokeWidth="1.4"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              style={{ opacity: 0.8, marginBottom: '14px', display: 'block', margin: '0 auto 14px' }}
-            >
-              <rect width="18" height="18" x="3" y="3" rx="2" />
-              <circle cx="9" cy="9" r="2" />
-              <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-            </svg>
-            <div
-              style={{
-                fontFamily: "'Courier New', monospace",
-                fontSize: '12px',
-                letterSpacing: '0.5px',
-                color: '#8b9aac',
-                lineHeight: 1.6,
-              }}
-            >
-              [ foto da recepção / fachada
-              <br />
-              do consultório — Leblon ]
-            </div>
+        {/* Office photos */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+          <div
+            style={{
+              aspectRatio: '4 / 3',
+              borderRadius: '4px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/consultorio-sala.jpg"
+              alt="Consultório do Dr. Daniel Flores no Leblon"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
+          </div>
+          <div
+            style={{
+              aspectRatio: '4 / 3',
+              borderRadius: '4px',
+              overflow: 'hidden',
+              border: '1px solid rgba(255,255,255,0.08)',
+            }}
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src="/images/consultorio-vista.jpg"
+              alt="Vista do consultório para o mar — Leblon, Rio de Janeiro"
+              style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+            />
           </div>
         </div>
       </div>

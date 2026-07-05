@@ -39,22 +39,19 @@ export default function Hero() {
         }}
       >
         <div style={{ maxWidth: '720px' }}>
-          {/* Metallic animated name */}
-          <div style={{ marginBottom: '24px' }}>
-            <div
-              className="metal-logo"
-              style={{
-                fontFamily: 'var(--font-cormorant), Georgia, serif',
-                fontWeight: 600,
-                fontSize: 'clamp(30px, 4.4vw, 54px)',
-                lineHeight: 1.05,
-                letterSpacing: '0.5px',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              Dr. Daniel Flores
-            </div>
-          </div>
+          {/* Brand logo */}
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img
+            src="/images/logo.png"
+            alt="Dr. Daniel Flores — Cirurgião Geral"
+            style={{
+              width: 'clamp(240px, 38vw, 430px)',
+              height: 'auto',
+              display: 'block',
+              marginBottom: '28px',
+              filter: 'drop-shadow(0 10px 34px rgba(0,0,0,0.55))',
+            }}
+          />
 
           {/* Gold divider line + specialty kicker */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '30px' }}>
