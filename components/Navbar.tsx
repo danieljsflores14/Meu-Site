@@ -13,7 +13,7 @@ export default function Navbar() {
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '20px clamp(24px, 6vw, 80px)',
+        padding: '12px clamp(24px, 6vw, 80px)',
         background: 'rgba(8,18,30,0.72)',
         backdropFilter: 'blur(18px)',
         WebkitBackdropFilter: 'blur(18px)',
@@ -22,27 +22,16 @@ export default function Navbar() {
     >
       <a
         href="#topo"
-        style={{ textDecoration: 'none', display: 'flex', alignItems: 'baseline', gap: '10px' }}
+        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
       >
-        <span
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/images/logo.png"
+          alt="Dr. Daniel Flores — Cirurgião Geral"
           style={{
-            fontFamily: 'var(--font-cormorant), Georgia, serif',
-            fontSize: '25px',
-            fontWeight: 500,
-            letterSpacing: '0.5px',
-            color: '#f3f0e9',
-            whiteSpace: 'nowrap',
-          }}
-        >
-          Dr. Daniel Flores
-        </span>
-        <span
-          style={{
-            width: '5px',
-            height: '5px',
-            borderRadius: '50%',
-            background: '#c9aa6c',
-            alignSelf: 'center',
+            height: 'clamp(60px, 7vw, 84px)',
+            width: 'auto',
+            display: 'block',
           }}
         />
       </a>

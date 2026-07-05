@@ -39,20 +39,6 @@ export default function Hero() {
         }}
       >
         <div style={{ maxWidth: '720px' }}>
-          {/* Brand logo */}
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img
-            src="/images/logo.png"
-            alt="Dr. Daniel Flores — Cirurgião Geral"
-            style={{
-              width: 'clamp(240px, 38vw, 430px)',
-              height: 'auto',
-              display: 'block',
-              marginBottom: '28px',
-              filter: 'drop-shadow(0 10px 34px rgba(0,0,0,0.55))',
-            }}
-          />
-
           {/* Gold divider line + specialty kicker */}
           <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '30px' }}>
             <span
