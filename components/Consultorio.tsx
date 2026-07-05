@@ -1,4 +1,5 @@
-import { Calendar, Clock, MapPin } from 'lucide-react'
+import { Calendar, Clock, MapPin, Phone } from 'lucide-react'
+import { PHONE_DISPLAY, WHATSAPP_URL } from './contact'
 
 export default function Consultorio() {
   return (
@@ -144,10 +145,56 @@ export default function Consultorio() {
                 </div>
               </div>
             </div>
+
+            <div style={{ display: 'flex', gap: '16px', alignItems: 'flex-start' }}>
+              <span
+                style={{
+                  flexShrink: 0,
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  width: '44px',
+                  height: '44px',
+                  borderRadius: '3px',
+                  background: 'rgba(201,170,108,0.1)',
+                  border: '1px solid rgba(201,170,108,0.24)',
+                  color: '#d4b676',
+                }}
+              >
+                <Phone size={20} strokeWidth={1.7} />
+              </span>
+              <div>
+                <div
+                  style={{
+                    fontSize: '12px',
+                    fontWeight: 600,
+                    letterSpacing: '1.5px',
+                    textTransform: 'uppercase',
+                    color: '#8b9aac',
+                    marginBottom: '6px',
+                  }}
+                >
+                  Telefone &amp; WhatsApp
+                </div>
+                <div style={{ fontSize: '16.5px', color: '#e8eef5', lineHeight: 1.5 }}>
+                  <a
+                    href={WHATSAPP_URL}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-[#d4b676] transition-colors duration-200"
+                    style={{ color: '#e8eef5', textDecoration: 'none' }}
+                  >
+                    {PHONE_DISPLAY}
+                  </a>
+                </div>
+              </div>
+            </div>
           </div>
 
           <a
-            href="#topo"
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
             className="hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(201,170,108,0.38)] transition-all duration-200"
             style={{
               display: 'inline-flex',

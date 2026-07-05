@@ -1,4 +1,5 @@
 import { Calendar } from 'lucide-react'
+import { WHATSAPP_URL } from './contact'
 
 export default function Navbar() {
   return (
@@ -90,7 +91,9 @@ export default function Navbar() {
         </div>
 
         <a
-          href="#consultorio"
+          href={WHATSAPP_URL}
+          target="_blank"
+          rel="noopener noreferrer"
           className="hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(201,170,108,0.34)] transition-all duration-200"
           style={{
             display: 'inline-flex',

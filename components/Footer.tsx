@@ -1,3 +1,5 @@
+import { PHONE_DISPLAY, WHATSAPP_URL } from './contact'
+
 export default function Footer() {
   return (
     <footer
@@ -105,6 +107,41 @@ export default function Footer() {
                 </span>
                 <span style={{ color: '#8b9aac', fontSize: '14px', fontWeight: 300 }}>
                   Leblon — Rio de Janeiro
+                </span>
+              </div>
+            </div>
+
+            {/* Contact */}
+            <div>
+              <div
+                style={{
+                  fontSize: '11.5px',
+                  fontWeight: 600,
+                  letterSpacing: '2px',
+                  textTransform: 'uppercase',
+                  color: '#c9aa6c',
+                  marginBottom: '16px',
+                }}
+              >
+                Contato
+              </div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '11px' }}>
+                <a
+                  href={WHATSAPP_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[#f3f0e9] transition-colors duration-200"
+                  style={{
+                    textDecoration: 'none',
+                    color: '#b3c0d0',
+                    fontSize: '14px',
+                    fontWeight: 400,
+                  }}
+                >
+                  {PHONE_DISPLAY}
+                </a>
+                <span style={{ color: '#8b9aac', fontSize: '14px', fontWeight: 300 }}>
+                  WhatsApp &amp; telefone
                 </span>
               </div>
             </div>

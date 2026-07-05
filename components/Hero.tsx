@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react'
+import { WHATSAPP_URL } from './contact'
 
 export default function Hero() {
   return (
@@ -115,7 +116,9 @@ export default function Hero() {
           {/* CTA buttons */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px' }}>
             <a
-              href="#consultorio"
+              href={WHATSAPP_URL}
+              target="_blank"
+              rel="noopener noreferrer"
               className="hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(201,170,108,0.4)] transition-all duration-200"
               style={{
                 display: 'inline-flex',
