@@ -7,7 +7,7 @@ import { PHONE_DISPLAY, WHATSAPP_URL } from '@/components/contact'
 export const metadata: Metadata = {
   title: 'Trajetória | Dr. Daniel Flores',
   description:
-    'A trajetória do Dr. Daniel Flores: graduação, residência e dez anos de docência na UFRJ, staff da cirurgia do pâncreas, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro e, desde 2009, cirurgião do Hospital Federal de Ipanema.',
+    'A trajetória do Dr. Daniel Flores: graduação, residência e dez anos ministrando aulas para a graduação na UFRJ, staff da cirurgia do pâncreas, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro e, desde 2009, cirurgião do Hospital Federal de Ipanema.',
 }
 
 const timeline = [
@@ -22,9 +22,9 @@ const timeline = [
     text: 'Três anos de residência médica em Cirurgia Geral, com treinamento intensivo em um dos grandes centros universitários de referência do Brasil.',
   },
   {
-    phase: 'Docência · 10 anos',
+    phase: 'Aulas para a graduação · 10 anos',
     title: 'Professor da graduação e preceptor do internato',
-    text: 'Dez anos dedicados ao ensino na graduação de Medicina da UFRJ e à preceptoria do internato de Cirurgia Geral — formando novas gerações de cirurgiões e mantendo contato permanente com a fronteira do conhecimento.',
+    text: 'Dez anos ministrando aulas para a graduação de Medicina da UFRJ e atuando como preceptor do internato de Cirurgia Geral — formando novas gerações de cirurgiões e mantendo contato permanente com a fronteira do conhecimento.',
   },
   {
     phase: 'Cirurgia do Pâncreas',

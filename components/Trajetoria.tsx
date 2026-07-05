@@ -2,7 +2,7 @@ import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
 const milestones = [
-  { value: 'UFRJ', label: 'graduação, residência e docência em Cirurgia Geral' },
+  { value: 'UFRJ', label: 'graduação, residência em Cirurgia Geral e aulas para a graduação' },
   { value: '10 anos', label: 'de ensino na graduação e preceptoria do internato' },
   { value: '1ª equipe', label: 'de transplante de pâncreas do Rio de Janeiro' },
   { value: '2009', label: 'desde então no Serviço de Cirurgia Geral do Hospital Federal de Ipanema' },
@@ -71,8 +71,8 @@ export default function Trajetoria() {
               margin: '0 0 36px',
             }}
           >
-            Graduação, residência e dez anos de docência na Universidade Federal do Rio de
-            Janeiro — onde integrou o staff da cirurgia do pâncreas e a primeira equipe de
+            Graduação, residência e dez anos ministrando aulas para a graduação na Universidade
+            Federal do Rio de Janeiro — onde integrou o staff da cirurgia do pâncreas e a primeira equipe de
             transplante de pâncreas do Rio. Desde 2009, no Serviço de Cirurgia Geral do Hospital
             Federal de Ipanema, dedicado às cirurgias oncológicas e do aparelho digestivo de alta
             complexidade.
