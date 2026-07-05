@@ -20,7 +20,7 @@ const manrope = Manrope({
 export const metadata: Metadata = {
   title: 'Dr. Daniel Flores | Cirurgião Geral',
   description:
-    'Cirurgião geral com foco em alta complexidade: cirurgia oncológica, hepatobiliopancreática, emergências e cirurgia robótica e minimamente invasiva. Consultório no Leblon, Rio de Janeiro. CRM-RJ 52.72115-8.',
+    'Cirurgião geral com foco em alta complexidade: cirurgia oncológica, hepatobiliopancreática, emergências e cirurgia robótica e minimamente invasiva. Formação e docência na UFRJ, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro. Consultório no Leblon, Rio de Janeiro. CRM-RJ 52.72115-8.',
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

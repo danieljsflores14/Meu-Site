@@ -105,7 +105,7 @@ export default function Hospitais() {
           </p>
         </div>
 
-        {/* Hospital placeholder cards */}
+        {/* Hospital cards */}
         <div
           style={{
             display: 'grid',
@@ -113,7 +113,48 @@ export default function Hospitais() {
             gap: '20px',
           }}
         >
-          {[1, 2, 3, 4].map((i) => (
+          {/* Real: Hospital Federal de Ipanema */}
+          <div
+            style={{
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+              gap: '12px',
+              minHeight: '130px',
+              padding: '28px',
+              borderRadius: '4px',
+              border: '1px solid rgba(201,170,108,0.32)',
+              background: 'rgba(201,170,108,0.05)',
+            }}
+          >
+            <HospitalIcon />
+            <div style={{ textAlign: 'center' }}>
+              <div
+                style={{
+                  fontFamily: 'var(--font-cormorant), Georgia, serif',
+                  fontSize: '20px',
+                  fontWeight: 500,
+                  color: '#f3f0e9',
+                  lineHeight: 1.25,
+                }}
+              >
+                Hospital Federal de Ipanema
+              </div>
+              <div
+                style={{
+                  fontSize: '12px',
+                  color: '#8b9aac',
+                  letterSpacing: '0.4px',
+                  marginTop: '6px',
+                }}
+              >
+                Serviço de Cirurgia Geral · desde 2009
+              </div>
+            </div>
+          </div>
+
+          {[1, 2, 3].map((i) => (
             <div
               key={i}
               style={{

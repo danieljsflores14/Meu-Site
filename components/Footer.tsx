@@ -66,9 +66,10 @@ export default function Footer() {
               </div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '11px' }}>
                 {[
-                  { href: '#atuacao', label: 'Áreas de Atuação' },
-                  { href: '#hospitais', label: 'Hospitais' },
-                  { href: '#consultorio', label: 'Consultório' },
+                  { href: '/#atuacao', label: 'Áreas de Atuação' },
+                  { href: '/sobre', label: 'Trajetória' },
+                  { href: '/#hospitais', label: 'Hospitais' },
+                  { href: '/#consultorio', label: 'Consultório' },
                 ].map(({ href, label }) => (
                   <a
                     key={href}

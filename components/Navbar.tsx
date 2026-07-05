@@ -1,4 +1,5 @@
 import { Calendar } from 'lucide-react'
+import Link from 'next/link'
 import { WHATSAPP_URL } from './contact'
 
 export default function Navbar() {
@@ -21,7 +22,7 @@ export default function Navbar() {
       }}
     >
       <a
-        href="#topo"
+        href="/"
         style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -39,7 +40,7 @@ export default function Navbar() {
       <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 3vw, 40px)' }}>
         <div className="hidden md:flex" style={{ alignItems: 'center', gap: '34px' }}>
           <a
-            href="#atuacao"
+            href="/#atuacao"
             className="hover:text-[#f3f0e9] transition-colors duration-200"
             style={{
               textDecoration: 'none',
@@ -51,8 +52,21 @@ export default function Navbar() {
           >
             Áreas de Atuação
           </a>
+          <Link
+            href="/sobre"
+            className="hover:text-[#f3f0e9] transition-colors duration-200"
+            style={{
+              textDecoration: 'none',
+              color: '#b3c0d0',
+              fontSize: '14px',
+              fontWeight: 500,
+              letterSpacing: '0.3px',
+            }}
+          >
+            Trajetória
+          </Link>
           <a
-            href="#hospitais"
+            href="/#hospitais"
             className="hover:text-[#f3f0e9] transition-colors duration-200"
             style={{
               textDecoration: 'none',
@@ -65,7 +79,7 @@ export default function Navbar() {
             Hospitais
           </a>
           <a
-            href="#consultorio"
+            href="/#consultorio"
             className="hover:text-[#f3f0e9] transition-colors duration-200"
             style={{
               textDecoration: 'none',

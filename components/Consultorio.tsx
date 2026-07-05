@@ -6,7 +6,7 @@ export default function Consultorio() {
     <section
       id="consultorio"
       style={{
-        background: '#0b1828',
+        background: '#08121e',
         padding: 'clamp(80px, 11vw, 150px) clamp(24px, 6vw, 80px)',
         borderTop: '1px solid rgba(255,255,255,0.05)',
       }}

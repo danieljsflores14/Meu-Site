@@ -207,12 +207,12 @@ export default function Hero() {
                   lineHeight: 1,
                 }}
               >
-                Padrão
+                UFRJ
               </div>
               <div
                 style={{ fontSize: '12.5px', color: '#8b9aac', letterSpacing: '0.4px', marginTop: '6px' }}
               >
-                hospitalar de alta excelência
+                formação, residência e docência
               </div>
             </div>
           </div>
