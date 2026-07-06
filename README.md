@@ -1,25 +1,56 @@
-# CODING AGENTS: READ THIS FIRST
+# drdanielflores.com.br
 
-This is a **handoff bundle** from Claude Design (claude.ai/design).
+Site profissional do Dr. Daniel Flores — cirurgião geral com foco em alta
+complexidade (cirurgia oncológica, hepatobiliopancreática, emergências e
+cirurgia robótica e minimamente invasiva). Consultório no Leblon, Rio de
+Janeiro. CRM-RJ 52.72115-8.
 
-A user mocked up designs in HTML/CSS/JS using an AI design tool, then exported this bundle so a coding agent can implement the designs for real.
+**No ar em:** https://drdanielflores.com.br
 
-## What you should do — IMPORTANT
+## Stack
 
-**Read the chat transcripts first.** There are 2 chat transcript(s) in `chats/`. The transcripts show the full back-and-forth between the user and the design assistant — they tell you **what the user actually wants** and **where they landed** after iterating. Don't skip them. The final HTML files are the output, but the chat is where the intent lives.
+- [Next.js](https://nextjs.org) (App Router) com `output: 'export'` — o build
+  gera um site 100% estático, compatível com hospedagem compartilhada
+- Tailwind CSS + estilos inline (tema azul-marinho e dourado)
+- Lucide React (ícones)
+- Fontes: Cormorant Garamond (títulos) e Manrope (texto), via `next/font`
 
-**Read `project/Dr Daniel Flores.dc.html` in full.** The user had this file open when they triggered the handoff, so it's almost certainly the primary design they want built. Read it top to bottom — don't skim. Then **follow its imports**: open every file it pulls in (shared components, CSS, scripts) so you understand how the pieces fit together before you start implementing.
+## Estrutura
 
-**If anything is ambiguous, ask the user to confirm before you start implementing.** It's much cheaper to clarify scope up front than to build the wrong thing.
+```
+app/
+  page.tsx          # Home: Hero → Áreas → Trajetória → Hospitais → Consultório
+  sobre/page.tsx    # Subpágina /sobre — linha do tempo da carreira
+  layout.tsx        # Fontes, metadata e tema base
+  sitemap.ts        # Gera sitemap.xml (estático)
+  robots.ts         # Gera robots.txt (estático)
+components/         # Navbar, Hero, AreasDeAtuacao, Trajetoria, Hospitais,
+                    # Consultorio, Footer + contact.ts (telefone/WhatsApp)
+public/images/      # logo.png, fotos do consultório, imagem do hero
+```
 
-## About the design files
+O contato central (telefone e link de WhatsApp usado por todos os botões
+"Agendar") fica em `components/contact.ts`.
 
-The design medium is **HTML/CSS/JS** — these are prototypes, not production code. Your job is to **recreate them pixel-perfectly** in whatever technology makes sense for the target codebase (React, Vue, native, whatever fits). Match the visual output; don't copy the prototype's internal structure unless it happens to fit.
+## Desenvolvimento
 
-**Don't render these files in a browser or take screenshots unless the user asks you to.** Everything you need — dimensions, colors, layout rules — is spelled out in the source. Read the HTML and CSS directly; a screenshot won't tell you anything they don't.
+```bash
+npm install
+npm run dev     # http://localhost:3000
+```
 
-## Bundle contents
+## Build e publicação (Hostinger)
 
-- `README.md` — this file
-- `chats/` — conversation transcripts (read these!)
-- `project/` — the `Meu-site` project files (HTML prototypes, assets, components)
+```bash
+npm run build   # gera o site estático na pasta out/
+```
+
+Depois, envie **o conteúdo** de `out/` para a pasta `public_html` do domínio
+na Hostinger (o `index.html` precisa ficar na raiz de `public_html`).
+Atalho: compacte o conteúdo de `out/` em um zip, faça upload pelo Gerenciador
+de Arquivos e extraia dentro de `public_html`.
+
+## Pendências conhecidas
+
+- 3 cards de hospitais ainda são placeholders (aguardando nomes/logos)
+- Foto/retrato profissional do médico para a página /sobre
