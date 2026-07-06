@@ -1,23 +1,9 @@
-const HospitalIcon = () => (
-  <svg
-    width="28"
-    height="28"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="#c9aa6c"
-    strokeWidth="1.4"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    style={{ opacity: 0.85 }}
-  >
-    <path d="M6 22V4a2 2 0 0 1 2-2h8a2 2 0 0 1 2 2v18Z" />
-    <path d="M6 12H4a2 2 0 0 0-2 2v6a2 2 0 0 0 2 2h2" />
-    <path d="M18 9h2a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2h-2" />
-    <path d="M10 6h4" />
-    <path d="M10 10h4" />
-    <path d="M10 14h4" />
-  </svg>
-)
+const hospitais = [
+  { nome: 'Copa Star', imagem: '/images/hospital-copa-star.jpg' },
+  { nome: 'Samaritano Barra', imagem: '/images/hospital-samaritano-barra.jpg' },
+  { nome: "Barra D'Or", imagem: '/images/hospital-barra-dor.jpg' },
+  { nome: 'Samaritano Botafogo', imagem: '/images/hospital-samaritano-botafogo.jpg' },
+]
 
 export default function Hospitais() {
   return (
@@ -105,84 +91,76 @@ export default function Hospitais() {
           </p>
         </div>
 
-        {/* Hospital cards */}
+        {/* Hospital photo cards */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
             gap: '20px',
           }}
         >
-          {/* Real: Hospital Federal de Ipanema */}
-          <div
-            style={{
-              display: 'flex',
-              flexDirection: 'column',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '12px',
-              minHeight: '130px',
-              padding: '28px',
-              borderRadius: '4px',
-              border: '1px solid rgba(201,170,108,0.32)',
-              background: 'rgba(201,170,108,0.05)',
-            }}
-          >
-            <HospitalIcon />
-            <div style={{ textAlign: 'center' }}>
-              <div
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontSize: '20px',
-                  fontWeight: 500,
-                  color: '#f3f0e9',
-                  lineHeight: 1.25,
-                }}
-              >
-                Hospital Federal de Ipanema
-              </div>
-              <div
-                style={{
-                  fontSize: '12px',
-                  color: '#8b9aac',
-                  letterSpacing: '0.4px',
-                  marginTop: '6px',
-                }}
-              >
-                Serviço de Cirurgia Geral · desde 2009
-              </div>
-            </div>
-          </div>
-
-          {[1, 2, 3].map((i) => (
+          {hospitais.map((h) => (
             <div
-              key={i}
+              key={h.nome}
+              className="hospital-card"
               style={{
-                display: 'flex',
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '14px',
-                minHeight: '130px',
-                padding: '28px',
+                position: 'relative',
+                aspectRatio: '4 / 3',
                 borderRadius: '4px',
+                overflow: 'hidden',
                 border: '1px solid rgba(255,255,255,0.08)',
-                backgroundImage:
-                  'repeating-linear-gradient(135deg, rgba(255,255,255,0.03) 0px, rgba(255,255,255,0.03) 11px, rgba(255,255,255,0.01) 11px, rgba(255,255,255,0.01) 22px)',
               }}
             >
-              <HospitalIcon />
-              <span
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src={h.imagem}
+                alt={`Hospital ${h.nome}`}
                 style={{
-                  fontFamily: "'Courier New', monospace",
-                  fontSize: '11.5px',
-                  letterSpacing: '0.5px',
-                  color: '#8b9aac',
-                  textAlign: 'center',
+                  position: 'absolute',
+                  inset: 0,
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  inset: 0,
+                  background:
+                    'linear-gradient(180deg, rgba(8,18,30,0.08) 35%, rgba(8,18,30,0.55) 70%, rgba(8,18,30,0.92) 100%)',
+                }}
+              />
+              <div
+                style={{
+                  position: 'absolute',
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  padding: '18px 20px',
                 }}
               >
-                [ logo / nome do hospital ]
-              </span>
+                <span
+                  style={{
+                    display: 'block',
+                    height: '1px',
+                    width: '26px',
+                    background: '#c9aa6c',
+                    marginBottom: '10px',
+                  }}
+                />
+                <div
+                  style={{
+                    fontFamily: 'var(--font-cormorant), Georgia, serif',
+                    fontSize: '21px',
+                    fontWeight: 500,
+                    color: '#f3f0e9',
+                    lineHeight: 1.2,
+                  }}
+                >
+                  {h.nome}
+                </div>
+              </div>
             </div>
           ))}
         </div>

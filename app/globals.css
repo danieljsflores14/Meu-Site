@@ -75,3 +75,19 @@
   border-color: rgba(201, 170, 108, 0.4);
   background: rgba(201, 170, 108, 0.04);
 }
+
+.hospital-card {
+  transition: border-color 0.3s;
+}
+
+.hospital-card img {
+  transition: transform 0.6s ease;
+}
+
+.hospital-card:hover {
+  border-color: rgba(201, 170, 108, 0.45);
+}
+
+.hospital-card:hover img {
+  transform: scale(1.05);
+}
