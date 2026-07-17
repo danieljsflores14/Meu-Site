@@ -23,6 +23,9 @@ jobs:
 
       - run: npm run build
 
+      - name: Usar index.html da raiz como página inicial
+        run: cp index.html out/index.html
+
       - name: Publicar pasta out/ na branch hostinger-deploy
         run: |
           cd out
