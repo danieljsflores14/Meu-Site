@@ -18,9 +18,28 @@ const manrope = Manrope({
 })
 
 export const metadata: Metadata = {
-  title: 'Dr. Daniel Flores | Cirurgião Geral',
+  metadataBase: new URL('https://drdanielflores.com.br'),
+  title: 'Dr. Daniel Flores — Cirurgião Geral e Oncológico | Rio de Janeiro',
   description:
-    'Cirurgião geral com foco em alta complexidade: cirurgia oncológica, hepatobiliopancreática, emergências e cirurgia robótica e minimamente invasiva. Formação e docência na UFRJ, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro. Consultório no Leblon, Rio de Janeiro. CRM-RJ 52.72115-8.',
+    'Cirurgia oncológica, hepatobiliopancreática e robótica de alta complexidade. Consultório no Leblon, Rio de Janeiro. Agendamento pelo WhatsApp.',
+  alternates: { canonical: '/' },
+  openGraph: {
+    type: 'website',
+    locale: 'pt_BR',
+    siteName: 'Dr. Daniel Flores',
+    title: 'Dr. Daniel Flores — Cirurgião Geral e Oncológico | Rio de Janeiro',
+    description:
+      'Cirurgia oncológica, hepatobiliopancreática e robótica de alta complexidade. Consultório no Leblon, Rio de Janeiro.',
+    url: '/',
+    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Dr. Daniel Flores — Cirurgião Geral e Oncológico | Rio de Janeiro',
+    description:
+      'Cirurgia oncológica, hepatobiliopancreática e robótica de alta complexidade. Consultório no Leblon, Rio de Janeiro.',
+    images: ['/images/og-image.jpg'],
+  },
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

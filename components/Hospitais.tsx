@@ -1,8 +1,24 @@
 const hospitais = [
-  { nome: 'Copa Star', imagem: '/images/hospital-copa-star.jpg' },
-  { nome: 'Samaritano Barra', imagem: '/images/hospital-samaritano-barra.jpg' },
-  { nome: "Barra D'Or", imagem: '/images/hospital-barra-dor.jpg' },
-  { nome: 'Samaritano Botafogo', imagem: '/images/hospital-samaritano-botafogo.jpg' },
+  {
+    nome: 'Copa Star',
+    imagem: '/images/hospital-copa-star.webp',
+    alt: 'Hospital Copa Star, Copacabana — onde o Dr. Daniel Flores realiza cirurgias',
+  },
+  {
+    nome: 'Samaritano Barra',
+    imagem: '/images/hospital-samaritano-barra.webp',
+    alt: 'Hospital Samaritano Barra — atuação do Dr. Daniel Flores',
+  },
+  {
+    nome: "Barra D'Or",
+    imagem: '/images/hospital-barra-dor.webp',
+    alt: "Hospital Barra D'Or — atuação do Dr. Daniel Flores",
+  },
+  {
+    nome: 'Samaritano Botafogo',
+    imagem: '/images/hospital-samaritano-botafogo.webp',
+    alt: 'Hospital Samaritano Botafogo — atuação do Dr. Daniel Flores',
+  },
 ]
 
 export default function Hospitais() {
@@ -114,7 +130,10 @@ export default function Hospitais() {
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={h.imagem}
-                alt={`Hospital ${h.nome}`}
+                alt={h.alt}
+                width={1200}
+                height={900}
+                loading="lazy"
                 style={{
                   position: 'absolute',
                   inset: 0,

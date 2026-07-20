@@ -1,6 +1,27 @@
 import { ArrowRight } from 'lucide-react'
 import Link from 'next/link'
 
+const fotos = [
+  {
+    src: '/images/dr-daniel-retrato.webp',
+    alt: 'Dr. Daniel Flores, cirurgião geral no Rio de Janeiro',
+    width: 530,
+    height: 529,
+    position: 'center 22%',
+    titulo: 'Dr. Daniel Flores',
+    legenda: 'CRM-RJ 52.72115-8 · RQE 56396',
+  },
+  {
+    src: '/images/dr-daniel-centro-cirurgico.webp',
+    alt: 'Dr. Daniel Flores em centro cirúrgico durante cirurgia de alta complexidade',
+    width: 1200,
+    height: 1597,
+    position: 'center 72%',
+    titulo: null,
+    legenda: 'Em centro cirúrgico',
+  },
+]
+
 const milestones = [
   { value: 'UFRJ', label: 'graduação, residência em Cirurgia Geral e aulas para a graduação' },
   { value: '10 anos', label: 'de ensino na graduação e preceptoria do internato' },
@@ -101,7 +122,73 @@ export default function Trajetoria() {
           </Link>
         </div>
 
-        {/* Milestones grid */}
+        {/* Photo column */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: '18px' }}>
+          {fotos.map((f) => (
+            <figure
+              key={f.src}
+              style={{
+                margin: 0,
+                borderRadius: '4px',
+                overflow: 'hidden',
+                border: '1px solid rgba(201,170,108,0.28)',
+                display: 'flex',
+                flexDirection: 'column',
+              }}
+            >
+              <div style={{ aspectRatio: '3 / 4', overflow: 'hidden' }}>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={f.src}
+                  alt={f.alt}
+                  width={f.width}
+                  height={f.height}
+                  loading="lazy"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: f.position,
+                    display: 'block',
+                  }}
+                />
+              </div>
+              <figcaption style={{ padding: '14px 20px', background: '#0a1523' }}>
+                {f.titulo && (
+                  <div
+                    style={{
+                      fontFamily: 'var(--font-cormorant), Georgia, serif',
+                      fontSize: '22px',
+                      color: '#f3f0e9',
+                    }}
+                  >
+                    {f.titulo}
+                  </div>
+                )}
+                <div
+                  style={{
+                    fontSize: '11px',
+                    letterSpacing: '2.4px',
+                    textTransform: 'uppercase',
+                    color: '#c9aa6c',
+                    marginTop: f.titulo ? '4px' : 0,
+                  }}
+                >
+                  {f.legenda}
+                </div>
+              </figcaption>
+            </figure>
+          ))}
+        </div>
+      </div>
+
+      {/* Milestones grid */}
+      <div
+        style={{
+          maxWidth: '1280px',
+          margin: 'clamp(40px, 6vw, 80px) auto 0',
+        }}
+      >
         <div
           style={{
             display: 'grid',

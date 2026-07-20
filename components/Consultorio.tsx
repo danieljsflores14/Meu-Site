@@ -228,8 +228,11 @@ export default function Consultorio() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/consultorio-sala.jpg"
-              alt="Consultório do Dr. Daniel Flores no Leblon"
+              src="/images/consultorio-sala.webp"
+              alt="Consultório do Dr. Daniel Flores no Leblon, Rio de Janeiro"
+              width={1500}
+              height={1125}
+              loading="lazy"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           </div>
@@ -243,8 +246,11 @@ export default function Consultorio() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/consultorio-vista.jpg"
-              alt="Vista do consultório para o mar — Leblon, Rio de Janeiro"
+              src="/images/consultorio-vista.webp"
+              alt="Vista para o mar do consultório no Leblon"
+              width={1050}
+              height={1400}
+              loading="lazy"
               style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
             />
           </div>
