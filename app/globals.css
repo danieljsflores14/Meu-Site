@@ -9,85 +9,131 @@
 
   html {
     scroll-behavior: smooth;
+    overflow-x: hidden;
   }
 
   ::selection {
-    background: rgba(201, 170, 108, 0.3);
-    color: #fff;
+    background: #c6a15b;
+    color: #060f1e;
   }
 }
 
-@keyframes metalFlow {
-  0% {
-    background-position: 0% 50%;
+@keyframes floaty {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+@keyframes scrollpulse {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 1; }
+  60% { opacity: 1; }
+  100% { transform: translateY(14px); opacity: 0; }
+}
+
+#areasGrid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+@media (max-width: 760px) {
+  #areasGrid { grid-template-columns: 1fr !important; }
+}
+@media (max-width: 760px) {
+  #trajetoriaGrid { grid-template-columns: 1fr !important; }
+  #consultorioGrid { grid-template-columns: 1fr !important; }
+  #footerGrid { grid-template-columns: 1fr !important; gap: 36px !important; }
+  .contato-row { grid-template-columns: 1fr !important; gap: 6px !important; }
+}
+
+/* Mobile nav */
+.nav-burger {
+  display: none;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  gap: 5px;
+  width: 36px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.nav-burger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #ece7df;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+.nav-burger.open span:nth-child(1) { transform: translateY(6.5px) rotate(45deg); }
+.nav-burger.open span:nth-child(2) { opacity: 0; }
+.nav-burger.open span:nth-child(3) { transform: translateY(-6.5px) rotate(-45deg); }
+
+@media (max-width: 980px) {
+  .nav-burger { display: flex; }
+  .nav-links {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    height: 100vh;
+    width: min(78vw, 320px);
+    background: #0a1a30;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    justify-content: center !important;
+    gap: 28px !important;
+    padding: 100px 34px 40px;
+    transform: translateX(100%);
+    transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -30px 0 60px -20px rgba(0, 0, 0, 0.55);
+    overflow-y: auto;
   }
-  100% {
-    background-position: 260% 50%;
-  }
+  .nav-links.open { transform: translateX(0); }
+  .nav-links a { font-size: 16px !important; }
+  .nav-links .nav-cta { margin-top: 8px; }
 }
 
-@keyframes flLineGrow {
-  0% {
-    width: 0;
-    opacity: 0;
-  }
-  100% {
-    width: 56px;
-    opacity: 1;
-  }
+/* Interactive states */
+.nav-cta {
+  transition: background 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+.nav-cta:hover {
+  background: #c6a15b;
+  color: #060f1e;
+  border-color: #c6a15b;
 }
 
-.metal-logo {
-  background: linear-gradient(
-    105deg,
-    #6b7686 0%,
-    #c4ccd8 14%,
-    #ffffff 27%,
-    #efe6d2 40%,
-    #c9aa6c 50%,
-    #f1e8d4 58%,
-    #ffffff 70%,
-    #aeb7c4 85%,
-    #d7dee6 100%
-  );
-  background-size: 260% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: metalFlow 7s linear infinite;
-  filter: drop-shadow(0 3px 16px rgba(0, 0, 0, 0.5));
-  display: inline-block;
-  padding-bottom: 6px;
-  padding-right: 6px;
+.btn-gold {
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+.btn-gold:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px -14px rgba(198, 161, 91, 0.6);
 }
 
-.line-grow {
-  animation: flLineGrow 1s ease forwards;
+.btn-outline {
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+.btn-outline:hover {
+  border-color: #c6a15b;
+  color: #e6c987;
 }
 
-.card-hover {
-  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+.area-card {
+  transition: background 0.5s ease;
+}
+.area-card:hover {
+  background: #10243c;
 }
 
-.card-hover:hover {
-  transform: translateY(-6px);
-  border-color: rgba(201, 170, 108, 0.4);
-  background: rgba(201, 170, 108, 0.04);
+.wa-float {
+  transition: transform 0.3s ease;
 }
-
-.hospital-card {
-  transition: border-color 0.3s;
+.wa-float:hover {
+  transform: scale(1.08);
 }
 
 .hospital-card img {
-  transition: transform 0.6s ease;
-}
-
-.hospital-card:hover {
-  border-color: rgba(201, 170, 108, 0.45);
-}
-
-.hospital-card:hover img {
-  transform: scale(1.05);
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
 }

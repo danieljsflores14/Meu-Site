@@ -2,6 +2,8 @@ import type { Metadata } from 'next'
 import { Calendar } from 'lucide-react'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
+import RevealScript from '@/components/RevealScript'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 import { PHONE_DISPLAY, WHATSAPP_URL } from '@/components/contact'
 
 export const metadata: Metadata = {
@@ -99,7 +101,7 @@ export default function SobrePage() {
         {/* Page header */}
         <section
           style={{
-            background: 'linear-gradient(180deg, #08121e 0%, #0b1828 100%)',
+            background: 'linear-gradient(180deg, #060f1e 0%, #0a1a30 100%)',
             padding: '200px clamp(24px, 6vw, 80px) clamp(60px, 8vw, 100px)',
           }}
         >
@@ -108,7 +110,7 @@ export default function SobrePage() {
               style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}
             >
               <span
-                style={{ display: 'block', height: '1px', width: '40px', background: '#c9aa6c' }}
+                style={{ display: 'block', height: '1px', width: '40px', background: '#c6a15b' }}
               />
               <span
                 style={{
@@ -116,7 +118,7 @@ export default function SobrePage() {
                   fontWeight: 600,
                   letterSpacing: '3px',
                   textTransform: 'uppercase',
-                  color: '#c9aa6c',
+                  color: '#c6a15b',
                 }}
               >
                 Trajetória
@@ -131,7 +133,7 @@ export default function SobrePage() {
                 lineHeight: 1.1,
                 letterSpacing: '-0.5px',
                 margin: '0 0 24px',
-                color: '#f3f0e9',
+                color: '#f3efe7',
               }}
             >
               Uma vida dedicada à cirurgia de alta complexidade.
@@ -141,7 +143,7 @@ export default function SobrePage() {
               style={{
                 fontSize: 'clamp(16px, 1.4vw, 18px)',
                 lineHeight: 1.7,
-                color: '#a7b5c6',
+                color: '#a39c92',
                 fontWeight: 300,
                 maxWidth: '640px',
                 margin: 0,
@@ -157,7 +159,7 @@ export default function SobrePage() {
         {/* Timeline */}
         <section
           style={{
-            background: '#0b1828',
+            background: '#0a1a30',
             padding: 'clamp(20px, 4vw, 40px) clamp(24px, 6vw, 80px) clamp(80px, 10vw, 130px)',
           }}
         >
@@ -196,8 +198,8 @@ export default function SobrePage() {
                       width: '11px',
                       height: '11px',
                       borderRadius: '50%',
-                      border: '2px solid #c9aa6c',
-                      background: '#0b1828',
+                      border: '2px solid #c6a15b',
+                      background: '#0a1a30',
                     }}
                   />
 
@@ -207,7 +209,7 @@ export default function SobrePage() {
                       fontWeight: 600,
                       letterSpacing: '2.5px',
                       textTransform: 'uppercase',
-                      color: '#c9aa6c',
+                      color: '#c6a15b',
                       marginBottom: '10px',
                     }}
                   >
@@ -220,7 +222,7 @@ export default function SobrePage() {
                       fontSize: 'clamp(24px, 2.4vw, 30px)',
                       lineHeight: 1.2,
                       margin: '0 0 12px',
-                      color: '#f3f0e9',
+                      color: '#f3efe7',
                     }}
                   >
                     {item.title}
@@ -229,7 +231,7 @@ export default function SobrePage() {
                     style={{
                       fontSize: '15px',
                       lineHeight: 1.7,
-                      color: '#a7b5c6',
+                      color: '#a39c92',
                       fontWeight: 300,
                       maxWidth: '620px',
                       margin: 0,
@@ -246,7 +248,7 @@ export default function SobrePage() {
         {/* CTA band */}
         <section
           style={{
-            background: 'linear-gradient(180deg, #0b1828 0%, #08121e 100%)',
+            background: 'linear-gradient(180deg, #0a1a30 0%, #060f1e 100%)',
             padding: 'clamp(70px, 9vw, 110px) clamp(24px, 6vw, 80px)',
             borderTop: '1px solid rgba(255,255,255,0.05)',
             textAlign: 'center',
@@ -261,7 +263,7 @@ export default function SobrePage() {
                 lineHeight: 1.15,
                 letterSpacing: '-0.5px',
                 margin: '0 0 18px',
-                color: '#f3f0e9',
+                color: '#f3efe7',
               }}
             >
               Experiência a serviço do seu tratamento.
@@ -270,7 +272,7 @@ export default function SobrePage() {
               style={{
                 fontSize: '16px',
                 lineHeight: 1.65,
-                color: '#a7b5c6',
+                color: '#a39c92',
                 fontWeight: 300,
                 margin: '0 0 36px',
               }}
@@ -289,8 +291,8 @@ export default function SobrePage() {
                 textDecoration: 'none',
                 padding: '16px 34px',
                 borderRadius: '2px',
-                background: 'linear-gradient(180deg, #d4b676 0%, #c19a52 100%)',
-                color: '#1a1206',
+                background: 'linear-gradient(180deg, #e6c987 0%, #c6a15b 100%)',
+                color: '#060f1e',
                 fontSize: '15px',
                 fontWeight: 600,
                 letterSpacing: '0.4px',
@@ -301,7 +303,7 @@ export default function SobrePage() {
               Agendar consulta
             </a>
             <div
-              style={{ marginTop: '18px', fontSize: '14px', color: '#8b9aac', fontWeight: 300 }}
+              style={{ marginTop: '18px', fontSize: '14px', color: '#948e84', fontWeight: 300 }}
             >
               WhatsApp {PHONE_DISPLAY}
             </div>
@@ -309,6 +311,8 @@ export default function SobrePage() {
         </section>
       </main>
       <Footer />
+      <WhatsAppFloat />
+      <RevealScript />
     </>
   )
 }

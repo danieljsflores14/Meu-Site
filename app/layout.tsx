@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Cormorant_Garamond, Manrope } from 'next/font/google'
+import { Archivo, Cormorant_Garamond } from 'next/font/google'
 import './globals.css'
 
 const cormorant = Cormorant_Garamond({
@@ -10,10 +10,10 @@ const cormorant = Cormorant_Garamond({
   display: 'swap',
 })
 
-const manrope = Manrope({
+const archivo = Archivo({
   subsets: ['latin'],
-  weight: ['300', '400', '500', '600', '700'],
-  variable: '--font-manrope',
+  weight: ['300', '400', '500', '600'],
+  variable: '--font-archivo',
   display: 'swap',
 })
 
@@ -44,15 +44,15 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="pt-BR" className={`${cormorant.variable} ${archivo.variable}`}>
       <body
         style={{
           margin: 0,
-          background: '#08121e',
+          background: '#060f1e',
           WebkitFontSmoothing: 'antialiased',
           overflowX: 'hidden',
-          fontFamily: 'var(--font-manrope), -apple-system, sans-serif',
-          color: '#e8eef5',
+          fontFamily: 'var(--font-archivo), -apple-system, sans-serif',
+          color: '#ece7df',
         }}
       >
         {children}

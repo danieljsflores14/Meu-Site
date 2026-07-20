@@ -1,206 +1,119 @@
 const areas = [
   {
+    num: '01',
     title: 'Cirurgia Oncológica',
-    description:
-      'Ressecção de tumores do aparelho digestivo com trabalho integrado e multidisciplinar — o tratamento é planejado em conjunto com oncologista, clínico, radioterapeuta e demais especialistas, definindo a melhor estratégia para cada paciente.',
-    icon: (
-      <svg
-        width="26"
-        height="26"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <circle cx="12" cy="12" r="10" />
-        <circle cx="12" cy="12" r="6" />
-        <circle cx="12" cy="12" r="2" />
-      </svg>
-    ),
+    desc: 'Ressecção de tumores do aparelho digestivo com trabalho integrado e multidisciplinar — o tratamento é planejado em conjunto com oncologista, clínico, radioterapeuta e demais especialistas, definindo a melhor estratégia para cada paciente.',
+    delay: 0,
   },
   {
+    num: '02',
     title: 'Cirurgia HPB',
-    description:
-      'Cirurgia hepatobiliopancreática de alta complexidade — fígado, vias biliares e pâncreas — com técnica refinada e segurança em cada etapa.',
-    icon: (
-      <svg
-        width="26"
-        height="26"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M4.8 2.3A.3.3 0 1 0 5 2H4a2 2 0 0 0-2 2v5a6 6 0 0 0 6 6 6 6 0 0 0 6-6V4a2 2 0 0 0-2-2h-1a.3.3 0 1 0 .2.3" />
-        <path d="M8 15v1a6 6 0 0 0 6 6 6 6 0 0 0 6-6v-4" />
-        <circle cx="20" cy="10" r="2" />
-      </svg>
-    ),
+    desc: 'Cirurgia hepatobiliopancreática de alta complexidade — fígado, vias biliares e pâncreas — com técnica refinada e segurança em cada etapa.',
+    delay: 100,
   },
   {
+    num: '03',
     title: 'Emergências Cirúrgicas',
-    description:
-      'Conduta imediata e segura nos quadros agudos do abdome, com decisão rápida e suporte cirúrgico em ambiente de alta complexidade.',
-    icon: (
-      <svg
-        width="26"
-        height="26"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z" />
-        <path d="M3.22 12H9.5l.5-1 2 4.5 2-7 1.5 3.5h5.27" />
-      </svg>
-    ),
+    desc: 'Conduta imediata e segura nos quadros agudos do abdome, com decisão rápida e suporte cirúrgico em ambiente de alta complexidade.',
+    delay: 200,
   },
   {
+    num: '04',
     title: 'Cirurgia Robótica e Minimamente Invasiva',
-    description:
-      'Plataformas robóticas e técnicas minimamente invasivas para maior precisão, menor trauma e recuperação mais rápida — mesmo em procedimentos de alta complexidade.',
-    icon: (
-      <svg
-        width="26"
-        height="26"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        strokeWidth="1.6"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <path d="M12 8V4H8" />
-        <rect width="16" height="12" x="4" y="8" rx="2" />
-        <path d="M2 14h2" />
-        <path d="M20 14h2" />
-        <path d="M15 13v2" />
-        <path d="M9 13v2" />
-      </svg>
-    ),
+    desc: 'Plataformas robóticas e técnicas minimamente invasivas para maior precisão, menor trauma e recuperação mais rápida — mesmo em procedimentos de alta complexidade.',
+    delay: 300,
   },
 ]
 
 export default function AreasDeAtuacao() {
   return (
-    <section
-      id="atuacao"
-      style={{
-        background: 'linear-gradient(180deg, #08121e 0%, #0b1828 100%)',
-        padding: 'clamp(80px, 11vw, 150px) clamp(24px, 6vw, 80px)',
-      }}
-    >
-      <div style={{ maxWidth: '1280px', margin: '0 auto' }}>
-        {/* Section header */}
-        <div style={{ maxWidth: '700px', marginBottom: 'clamp(50px, 7vw, 84px)' }}>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}>
-            <span
-              style={{ display: 'block', height: '1px', width: '40px', background: '#c9aa6c' }}
-            />
-            <span
-              style={{
-                fontSize: '12px',
-                fontWeight: 600,
-                letterSpacing: '3px',
-                textTransform: 'uppercase',
-                color: '#c9aa6c',
-              }}
-            >
-              Áreas de Atuação
-            </span>
-          </div>
-
-          <h2
-            style={{
-              fontFamily: 'var(--font-cormorant), Georgia, serif',
-              fontWeight: 400,
-              fontSize: 'clamp(34px, 4.4vw, 56px)',
-              lineHeight: 1.08,
-              letterSpacing: '-0.5px',
-              margin: '0 0 18px',
-              color: '#f3f0e9',
-            }}
-          >
-            Quatro frentes, um único
-            <br />
-            padrão de excelência.
-          </h2>
-
-          <p style={{ fontSize: '15.5px', lineHeight: 1.65, color: '#93a2b4', fontWeight: 300, margin: 0 }}>
-            Cirurgião geral dedicado à alta complexidade — onde experiência, técnica e tecnologia se
-            encontram em cada procedimento.
-          </p>
-        </div>
-
-        {/* Cards grid */}
-        <div
+    <section id="atuacao" style={{ padding: 'clamp(90px,11vw,170px) clamp(24px,6vw,120px)', maxWidth: '1600px', margin: '0 auto' }}>
+      <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
+        <span style={{ width: '46px', height: '1px', background: 'linear-gradient(90deg,#c6a15b,transparent)' }} />
+        <span data-reveal="up" style={{ fontSize: '12px', letterSpacing: '.32em', textTransform: 'uppercase', color: '#c6a15b' }}>
+          Áreas de Atuação
+        </span>
+      </div>
+      <div
+        style={{
+          display: 'flex',
+          flexWrap: 'wrap',
+          justifyContent: 'space-between',
+          alignItems: 'flex-end',
+          gap: '30px',
+          marginBottom: 'clamp(50px,6vw,88px)',
+        }}
+      >
+        <h2
+          data-reveal="up"
           style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
-            gap: '24px',
+            fontFamily: 'var(--font-cormorant), serif',
+            fontWeight: 400,
+            fontSize: 'clamp(34px,4.6vw,68px)',
+            lineHeight: 1.05,
+            letterSpacing: '-0.01em',
+            maxWidth: '18ch',
           }}
         >
-          {areas.map((area) => (
-            <article
-              key={area.title}
-              className="card-hover"
-              style={{
-                position: 'relative',
-                padding: '44px 36px 40px',
-                background: 'rgba(255,255,255,0.022)',
-                border: '1px solid rgba(255,255,255,0.07)',
-                borderRadius: '4px',
-              }}
-            >
-              <div
+          Quatro frentes, um único <span style={{ fontStyle: 'italic', color: '#c6a15b' }}>padrão de excelência.</span>
+        </h2>
+        <p data-reveal="up" data-delay="140" style={{ maxWidth: '44ch', fontSize: '16px', lineHeight: 1.7, color: '#9a938a', fontWeight: 300 }}>
+          Cirurgião geral dedicado à alta complexidade — onde experiência, técnica e tecnologia se encontram em cada
+          procedimento.
+        </p>
+      </div>
+      <div
+        id="areasGrid"
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(2,minmax(0,1fr))',
+          gap: '1px',
+          background: 'rgba(255,255,255,0.08)',
+          border: '1px solid rgba(255,255,255,0.08)',
+        }}
+      >
+        {areas.map((a) => (
+          <div
+            key={a.num}
+            data-reveal="up"
+            data-delay={a.delay}
+            className="area-card"
+            style={{ background: '#060f1e', padding: 'clamp(34px,3vw,52px)', minHeight: '340px', display: 'flex', flexDirection: 'column' }}
+          >
+            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 'auto' }}>
+              <span style={{ fontFamily: 'var(--font-cormorant), serif', fontSize: '52px', lineHeight: 1, color: 'rgba(198,161,91,0.45)' }}>
+                {a.num}
+              </span>
+              <span
                 style={{
-                  display: 'inline-flex',
+                  width: '34px',
+                  height: '34px',
+                  border: '1px solid rgba(198,161,91,0.4)',
+                  borderRadius: '50%',
+                  display: 'flex',
                   alignItems: 'center',
                   justifyContent: 'center',
-                  width: '56px',
-                  height: '56px',
-                  borderRadius: '3px',
-                  background: 'rgba(201,170,108,0.1)',
-                  border: '1px solid rgba(201,170,108,0.28)',
-                  color: '#d4b676',
-                  marginBottom: '30px',
+                  color: '#c6a15b',
+                  fontSize: '15px',
                 }}
               >
-                {area.icon}
-              </div>
-
-              <h3
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontWeight: 500,
-                  fontSize: '27px',
-                  margin: '0 0 14px',
-                  color: '#f3f0e9',
-                }}
-              >
-                {area.title}
-              </h3>
-
-              <p
-                style={{
-                  fontSize: '14.5px',
-                  lineHeight: 1.65,
-                  color: '#a7b5c6',
-                  fontWeight: 300,
-                  margin: 0,
-                }}
-              >
-                {area.description}
-              </p>
-            </article>
-          ))}
-        </div>
+                ↗
+              </span>
+            </div>
+            <h3
+              style={{
+                fontFamily: 'var(--font-cormorant), serif',
+                fontWeight: 500,
+                fontSize: 'clamp(24px,2vw,30px)',
+                margin: '34px 0 16px',
+                letterSpacing: '-0.005em',
+              }}
+            >
+              {a.title}
+            </h3>
+            <p style={{ fontSize: '14.5px', lineHeight: 1.72, color: '#948e84', fontWeight: 300 }}>{a.desc}</p>
+          </div>
+        ))}
       </div>
     </section>
   )

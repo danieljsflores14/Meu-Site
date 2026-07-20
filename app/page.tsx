@@ -4,7 +4,10 @@ import Footer from '@/components/Footer'
 import Hero from '@/components/Hero'
 import Hospitais from '@/components/Hospitais'
 import Navbar from '@/components/Navbar'
+import RevealScript from '@/components/RevealScript'
+import StatsBand from '@/components/StatsBand'
 import Trajetoria from '@/components/Trajetoria'
+import WhatsAppFloat from '@/components/WhatsAppFloat'
 
 // Dados estruturados (schema.org) — Google Local + assistentes de IA
 const physicianSchema = {
@@ -59,12 +62,15 @@ export default function Home() {
       <Navbar />
       <main>
         <Hero />
+        <StatsBand />
         <AreasDeAtuacao />
         <Trajetoria />
         <Hospitais />
         <Consultorio />
       </main>
       <Footer />
+      <WhatsAppFloat />
+      <RevealScript />
     </>
   )
 }
