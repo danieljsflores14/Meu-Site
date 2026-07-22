@@ -1,119 +1,105 @@
-import { Calendar } from 'lucide-react'
 import Link from 'next/link'
 import { WHATSAPP_URL } from './contact'
+
+const navLinks = [
+  { href: '/#atuacao', label: 'Áreas de Atuação' },
+  { href: '/sobre', label: 'Trajetória' },
+  { href: '/#hospitais', label: 'Hospitais' },
+  { href: '/#consultorio', label: 'Consultório' },
+]
 
 export default function Navbar() {
   return (
     <nav
+      id="nav"
       style={{
         position: 'fixed',
         top: 0,
         left: 0,
         right: 0,
-        zIndex: 50,
+        zIndex: 100,
         display: 'flex',
         alignItems: 'center',
         justifyContent: 'space-between',
-        padding: '12px clamp(24px, 6vw, 80px)',
-        background: 'rgba(8,18,30,0.72)',
-        backdropFilter: 'blur(18px)',
-        WebkitBackdropFilter: 'blur(18px)',
-        borderBottom: '1px solid rgba(201,170,108,0.14)',
+        padding: '22px clamp(24px, 6vw, 120px)',
+        borderBottom: '1px solid rgba(255,255,255,0)',
+        transition: 'background .5s ease, border-color .5s ease, backdrop-filter .5s ease',
       }}
     >
-      <a
-        href="/"
-        style={{ textDecoration: 'none', display: 'flex', alignItems: 'center' }}
-      >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/images/logo.png"
-          alt="Dr. Daniel Flores — Cirurgião Geral"
+      <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '14px', color: '#ece7df' }}>
+        <span
           style={{
-            height: 'clamp(60px, 7vw, 84px)',
-            width: 'auto',
-            display: 'block',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '44px',
+            height: '44px',
+            border: '1px solid rgba(198,161,91,0.55)',
+            borderRadius: '50%',
+            fontFamily: 'var(--font-cormorant), serif',
+            fontSize: '19px',
+            letterSpacing: '.04em',
+            color: '#c6a15b',
+            flexShrink: 0,
           }}
-        />
+        >
+          DF
+        </span>
+        <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+          <span
+            style={{
+              fontFamily: 'var(--font-cormorant), serif',
+              fontSize: '19px',
+              letterSpacing: '.16em',
+              fontWeight: 500,
+            }}
+          >
+            DR. DANIEL FLORES
+          </span>
+          <span
+            style={{
+              fontSize: '9.5px',
+              letterSpacing: '.34em',
+              textTransform: 'uppercase',
+              color: '#8b857b',
+            }}
+          >
+            Cirurgião Geral
+          </span>
+        </span>
       </a>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 3vw, 40px)' }}>
-        <div className="hidden md:flex" style={{ alignItems: 'center', gap: '34px' }}>
-          <a
-            href="/#atuacao"
-            className="hover:text-[#f3f0e9] transition-colors duration-200"
-            style={{
-              textDecoration: 'none',
-              color: '#b3c0d0',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.3px',
-            }}
-          >
-            Áreas de Atuação
-          </a>
-          <Link
-            href="/sobre"
-            className="hover:text-[#f3f0e9] transition-colors duration-200"
-            style={{
-              textDecoration: 'none',
-              color: '#b3c0d0',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.3px',
-            }}
-          >
-            Trajetória
-          </Link>
-          <a
-            href="/#hospitais"
-            className="hover:text-[#f3f0e9] transition-colors duration-200"
-            style={{
-              textDecoration: 'none',
-              color: '#b3c0d0',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.3px',
-            }}
-          >
-            Hospitais
-          </a>
-          <a
-            href="/#consultorio"
-            className="hover:text-[#f3f0e9] transition-colors duration-200"
-            style={{
-              textDecoration: 'none',
-              color: '#b3c0d0',
-              fontSize: '14px',
-              fontWeight: 500,
-              letterSpacing: '0.3px',
-            }}
-          >
-            Consultório
-          </a>
+      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 2.6vw, 44px)' }}>
+        <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 2.6vw, 44px)' }}>
+          {navLinks.map(({ href, label }) => (
+            <Link
+              key={href}
+              href={href}
+              style={{ color: '#c8c2b8', fontSize: '13px', letterSpacing: '.06em', whiteSpace: 'nowrap' }}
+            >
+              {label}
+            </Link>
+          ))}
         </div>
-
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:-translate-y-0.5 hover:shadow-[0_10px_30px_rgba(201,170,108,0.34)] transition-all duration-200"
+          className="hover:bg-[#c6a15b] hover:!text-[#060f1e] hover:border-[#c6a15b] transition-colors duration-300"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
             gap: '9px',
-            textDecoration: 'none',
-            padding: '12px 24px',
-            borderRadius: '2px',
-            background: 'linear-gradient(180deg, #d4b676 0%, #c19a52 100%)',
-            color: '#1a1206',
-            fontSize: '14px',
-            fontWeight: 600,
-            letterSpacing: '0.4px',
-            boxShadow: '0 6px 24px rgba(201,170,108,0.22)',
+            padding: '12px 26px',
+            border: '1px solid rgba(198,161,91,0.6)',
+            borderRadius: '100px',
+            color: '#e6c987',
+            fontSize: '12.5px',
+            letterSpacing: '.12em',
+            textTransform: 'uppercase',
+            whiteSpace: 'nowrap',
           }}
         >
-          <Calendar size={16} />
           Agendar
         </a>
       </div>

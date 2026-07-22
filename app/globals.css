@@ -1,93 +1,206 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  * {
-    box-sizing: border-box;
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  ::selection {
-    background: rgba(201, 170, 108, 0.3);
-    color: #fff;
-  }
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-@keyframes metalFlow {
-  0% {
-    background-position: 0% 50%;
-  }
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: #060f1e;
+  color: #ece7df;
+  font-family: var(--font-archivo), -apple-system, BlinkMacSystemFont, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+a {
+  color: #c6a15b;
+  text-decoration: none;
+  transition: color 0.4s ease;
+}
+
+a:hover {
+  color: #e6c987;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+::selection {
+  background: #c6a15b;
+  color: #060f1e;
+}
+
+/* Área card hover (grid cell darkens) */
+.area-card:hover {
+  background: #10243c !important;
+}
+
+/* Hospital card image zoom on hover */
+.hospital-card:hover img {
+  transform: scale(1.06);
+}
+
+/* Floating WhatsApp button */
+.wa-float {
+  animation: floaty 3.4s ease-in-out infinite;
+}
+
+:focus-visible {
+  outline: 2px solid #e6c987;
+  outline-offset: 3px;
+  border-radius: inherit;
+}
+
+/* ---- Keyframes ---- */
+@keyframes floaty {
+  0%,
   100% {
-    background-position: 260% 50%;
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
   }
 }
 
-@keyframes flLineGrow {
+@keyframes scrollpulse {
   0% {
-    width: 0;
+    transform: translateY(0);
     opacity: 0;
   }
-  100% {
-    width: 56px;
+  30% {
     opacity: 1;
+  }
+  60% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(14px);
+    opacity: 0;
   }
 }
 
-.metal-logo {
-  background: linear-gradient(
-    105deg,
-    #6b7686 0%,
-    #c4ccd8 14%,
-    #ffffff 27%,
-    #efe6d2 40%,
-    #c9aa6c 50%,
-    #f1e8d4 58%,
-    #ffffff 70%,
-    #aeb7c4 85%,
-    #d7dee6 100%
-  );
-  background-size: 260% 100%;
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
-  color: transparent;
-  animation: metalFlow 7s linear infinite;
-  filter: drop-shadow(0 3px 16px rgba(0, 0, 0, 0.5));
-  display: inline-block;
-  padding-bottom: 6px;
-  padding-right: 6px;
+@keyframes softpulse {
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
 }
 
-.line-grow {
-  animation: flLineGrow 1s ease forwards;
+/* ---- Scroll reveal ----
+   Content is visible by default (no-JS, reduced-motion, crawlers).
+   ScrollFX adds data-fx="on" to <html> only when motion is allowed,
+   which arms the initial hidden state; .is-in plays the reveal. */
+html[data-fx='on'] [data-reveal] {
+  transition-property: opacity, transform, filter, clip-path;
+  transition-duration: var(--dur, 1.25s);
+  transition-delay: var(--d, 0ms);
+  transition-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
 }
 
-.card-hover {
-  transition: transform 0.3s, border-color 0.3s, background 0.3s;
+html[data-fx='on'] [data-reveal='up'] {
+  opacity: 0;
+  transform: translateY(88px) scale(0.955);
+  filter: blur(12px);
+}
+html[data-fx='on'] [data-reveal='line'] {
+  transform: translateY(110%);
+}
+html[data-fx='on'] [data-reveal='scale'] {
+  opacity: 0;
+  transform: scale(1.1);
+}
+html[data-fx='on'] [data-reveal='wipe'] {
+  clip-path: inset(0 0 100% 0);
+}
+html[data-fx='on'] [data-reveal='wipe'] img {
+  transform: scale(1.4);
+  transition: transform 1.9s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.card-hover:hover {
-  transform: translateY(-6px);
-  border-color: rgba(201, 170, 108, 0.4);
-  background: rgba(201, 170, 108, 0.04);
+html[data-fx='on'] [data-reveal].is-in {
+  opacity: 1;
+  transform: none;
+  filter: none;
+  clip-path: inset(0 0 0 0);
+}
+html[data-fx='on'] [data-reveal='wipe'].is-in img {
+  transform: scale(1);
 }
 
-.hospital-card {
-  transition: border-color 0.3s;
+/* ---- Responsive utilities (inline styles can't hold media queries) ---- */
+.stats-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+.areas-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.split {
+  display: grid;
+  align-items: start;
 }
 
-.hospital-card img {
-  transition: transform 0.6s ease;
+@media (max-width: 900px) {
+  .split {
+    grid-template-columns: 1fr !important;
+    gap: clamp(36px, 8vw, 56px) !important;
+  }
+  .split .split-media {
+    order: -1;
+  }
 }
 
-.hospital-card:hover {
-  border-color: rgba(201, 170, 108, 0.45);
+@media (max-width: 760px) {
+  .areas-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .nav-links {
+    display: none !important;
+  }
 }
 
-.hospital-card:hover img {
-  transform: scale(1.05);
+@media (max-width: 720px) {
+  .stats-3 {
+    grid-template-columns: 1fr;
+  }
+  .stats-3 > div {
+    border-right: none !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+  }
+}
+
+/* ---- Reduced motion: everything visible and still ---- */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+  [data-reveal] {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    clip-path: none !important;
+  }
+  [data-reveal] img {
+    transform: none !important;
+  }
 }

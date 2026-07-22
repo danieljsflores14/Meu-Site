@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
-import { Calendar } from 'lucide-react'
 import Footer from '@/components/Footer'
 import Navbar from '@/components/Navbar'
-import { PHONE_DISPLAY, WHATSAPP_URL } from '@/components/contact'
+import { WHATSAPP_URL } from '@/components/contact'
 
 export const metadata: Metadata = {
   title: 'Trajetória | Dr. Daniel Flores',
   description:
     'A trajetória do Dr. Daniel Flores: graduação, residência e dez anos ministrando aulas para a graduação na UFRJ, staff da cirurgia do pâncreas, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro e, desde 2009, cirurgião do Hospital Federal de Ipanema.',
+  alternates: { canonical: '/sobre' },
 }
 
 const timeline = [
@@ -51,26 +51,14 @@ export default function SobrePage() {
         {/* Page header */}
         <section
           style={{
-            background: 'linear-gradient(180deg, #08121e 0%, #0b1828 100%)',
-            padding: '200px clamp(24px, 6vw, 80px) clamp(60px, 8vw, 100px)',
+            background: 'linear-gradient(180deg, #060f1e 0%, #0a1a30 100%)',
+            padding: '200px clamp(24px, 6vw, 120px) clamp(60px, 8vw, 100px)',
           }}
         >
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
-            <div
-              style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}
-            >
-              <span
-                style={{ display: 'block', height: '1px', width: '40px', background: '#c9aa6c' }}
-              />
-              <span
-                style={{
-                  fontSize: '12px',
-                  fontWeight: 600,
-                  letterSpacing: '3px',
-                  textTransform: 'uppercase',
-                  color: '#c9aa6c',
-                }}
-              >
+          <div style={{ maxWidth: '860px', margin: '0 auto' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
+              <span style={{ width: '46px', height: '1px', background: 'linear-gradient(90deg, #c6a15b, transparent)' }} />
+              <span style={{ fontSize: '12px', letterSpacing: '.32em', textTransform: 'uppercase', color: '#c6a15b' }}>
                 Trajetória
               </span>
             </div>
@@ -79,29 +67,30 @@ export default function SobrePage() {
               style={{
                 fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontWeight: 400,
-                fontSize: 'clamp(38px, 5vw, 64px)',
-                lineHeight: 1.1,
-                letterSpacing: '-0.5px',
+                fontSize: 'clamp(38px, 5.2vw, 76px)',
+                lineHeight: 1.02,
+                letterSpacing: '-0.015em',
                 margin: '0 0 24px',
-                color: '#f3f0e9',
+                color: '#f3efe7',
+                maxWidth: '18ch',
               }}
             >
-              Uma vida dedicada à cirurgia de alta complexidade.
+              Uma vida dedicada à cirurgia de <span style={{ fontStyle: 'italic', color: '#c6a15b' }}>alta complexidade.</span>
             </h1>
 
             <p
               style={{
-                fontSize: 'clamp(16px, 1.4vw, 18px)',
-                lineHeight: 1.7,
-                color: '#a7b5c6',
+                fontSize: 'clamp(16px, 1.4vw, 19px)',
+                lineHeight: 1.75,
+                color: '#a39c92',
                 fontWeight: 300,
                 maxWidth: '640px',
                 margin: 0,
               }}
             >
-              Da formação na Universidade Federal do Rio de Janeiro ao Serviço de Cirurgia Geral
-              do Hospital Federal de Ipanema, mais de vinte anos construídos sobre ensino,
-              pesquisa e prática cirúrgica nos centros de referência do Rio de Janeiro.
+              Da formação na Universidade Federal do Rio de Janeiro ao Serviço de Cirurgia Geral do
+              Hospital Federal de Ipanema, mais de vinte anos construídos sobre ensino, pesquisa e
+              prática cirúrgica nos centros de referência do Rio de Janeiro.
             </p>
           </div>
         </section>
@@ -109,23 +98,15 @@ export default function SobrePage() {
         {/* Timeline */}
         <section
           style={{
-            background: '#0b1828',
-            padding: 'clamp(20px, 4vw, 40px) clamp(24px, 6vw, 80px) clamp(80px, 10vw, 130px)',
+            background: '#0a1a30',
+            padding: 'clamp(20px, 4vw, 40px) clamp(24px, 6vw, 120px) clamp(80px, 10vw, 130px)',
           }}
         >
-          <div style={{ maxWidth: '820px', margin: '0 auto' }}>
+          <div style={{ maxWidth: '860px', margin: '0 auto' }}>
             {timeline.map((item, i) => {
               const isLast = i === timeline.length - 1
               return (
-                <div
-                  key={item.title}
-                  style={{
-                    position: 'relative',
-                    paddingLeft: '44px',
-                    paddingBottom: isLast ? 0 : '54px',
-                  }}
-                >
-                  {/* Vertical line */}
+                <div key={item.title} style={{ position: 'relative', paddingLeft: '44px', paddingBottom: isLast ? 0 : '54px' }}>
                   {!isLast && (
                     <span
                       style={{
@@ -134,12 +115,10 @@ export default function SobrePage() {
                         top: '18px',
                         bottom: '-4px',
                         width: '1px',
-                        background:
-                          'linear-gradient(180deg, rgba(201,170,108,0.45), rgba(201,170,108,0.12))',
+                        background: 'linear-gradient(180deg, rgba(198,161,91,0.45), rgba(198,161,91,0.12))',
                       }}
                     />
                   )}
-                  {/* Node */}
                   <span
                     style={{
                       position: 'absolute',
@@ -148,8 +127,8 @@ export default function SobrePage() {
                       width: '11px',
                       height: '11px',
                       borderRadius: '50%',
-                      border: '2px solid #c9aa6c',
-                      background: '#0b1828',
+                      border: '2px solid #c6a15b',
+                      background: '#0a1a30',
                     }}
                   />
 
@@ -157,9 +136,9 @@ export default function SobrePage() {
                     style={{
                       fontSize: '11.5px',
                       fontWeight: 600,
-                      letterSpacing: '2.5px',
+                      letterSpacing: '.25em',
                       textTransform: 'uppercase',
-                      color: '#c9aa6c',
+                      color: '#c6a15b',
                       marginBottom: '10px',
                     }}
                   >
@@ -169,24 +148,15 @@ export default function SobrePage() {
                     style={{
                       fontFamily: 'var(--font-cormorant), Georgia, serif',
                       fontWeight: 500,
-                      fontSize: 'clamp(24px, 2.4vw, 30px)',
-                      lineHeight: 1.2,
+                      fontSize: 'clamp(24px, 2.4vw, 32px)',
+                      lineHeight: 1.15,
                       margin: '0 0 12px',
-                      color: '#f3f0e9',
+                      color: '#f3efe7',
                     }}
                   >
                     {item.title}
                   </h2>
-                  <p
-                    style={{
-                      fontSize: '15px',
-                      lineHeight: 1.7,
-                      color: '#a7b5c6',
-                      fontWeight: 300,
-                      maxWidth: '620px',
-                      margin: 0,
-                    }}
-                  >
+                  <p style={{ fontSize: '15.5px', lineHeight: 1.75, color: '#a39c92', fontWeight: 300, maxWidth: '620px', margin: 0 }}>
                     {item.text}
                   </p>
                 </div>
@@ -198,9 +168,9 @@ export default function SobrePage() {
         {/* CTA band */}
         <section
           style={{
-            background: 'linear-gradient(180deg, #0b1828 0%, #08121e 100%)',
-            padding: 'clamp(70px, 9vw, 110px) clamp(24px, 6vw, 80px)',
-            borderTop: '1px solid rgba(255,255,255,0.05)',
+            background: 'linear-gradient(180deg, #0a1a30 0%, #060f1e 100%)',
+            padding: 'clamp(70px, 9vw, 110px) clamp(24px, 6vw, 120px)',
+            borderTop: '1px solid rgba(255,255,255,0.07)',
             textAlign: 'center',
           }}
         >
@@ -209,54 +179,40 @@ export default function SobrePage() {
               style={{
                 fontFamily: 'var(--font-cormorant), Georgia, serif',
                 fontWeight: 400,
-                fontSize: 'clamp(30px, 4vw, 46px)',
-                lineHeight: 1.15,
-                letterSpacing: '-0.5px',
+                fontSize: 'clamp(30px, 4vw, 50px)',
+                lineHeight: 1.1,
+                letterSpacing: '-0.01em',
                 margin: '0 0 18px',
-                color: '#f3f0e9',
+                color: '#f3efe7',
               }}
             >
-              Experiência a serviço do seu tratamento.
+              Experiência a serviço do <span style={{ fontStyle: 'italic', color: '#c6a15b' }}>seu tratamento.</span>
             </h2>
-            <p
-              style={{
-                fontSize: '16px',
-                lineHeight: 1.65,
-                color: '#a7b5c6',
-                fontWeight: 300,
-                margin: '0 0 36px',
-              }}
-            >
+            <p style={{ fontSize: '16px', lineHeight: 1.7, color: '#a39c92', fontWeight: 300, margin: '0 0 36px' }}>
               Consultas no Leblon, mediante agendamento.
             </p>
             <a
               href={WHATSAPP_URL}
               target="_blank"
               rel="noopener noreferrer"
-              className="hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(201,170,108,0.4)] transition-all duration-200"
+              className="hover:-translate-y-[3px] hover:shadow-[0_18px_40px_-14px_rgba(198,161,91,0.6)] transition-all duration-300"
               style={{
                 display: 'inline-flex',
                 alignItems: 'center',
-                gap: '10px',
+                gap: '12px',
                 textDecoration: 'none',
-                padding: '16px 34px',
-                borderRadius: '2px',
-                background: 'linear-gradient(180deg, #d4b676 0%, #c19a52 100%)',
-                color: '#1a1206',
-                fontSize: '15px',
-                fontWeight: 600,
-                letterSpacing: '0.4px',
-                boxShadow: '0 10px 36px rgba(201,170,108,0.28)',
+                padding: '17px 34px',
+                background: 'linear-gradient(110deg, #e6c987, #c6a15b)',
+                color: '#060f1e',
+                borderRadius: '100px',
+                fontSize: '13px',
+                letterSpacing: '.1em',
+                textTransform: 'uppercase',
+                fontWeight: 500,
               }}
             >
-              <Calendar size={17} strokeWidth={2} />
               Agendar consulta
             </a>
-            <div
-              style={{ marginTop: '18px', fontSize: '14px', color: '#8b9aac', fontWeight: 300 }}
-            >
-              WhatsApp {PHONE_DISPLAY}
-            </div>
           </div>
         </section>
       </main>

@@ -1,0 +1,116 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-07-21T00:00:00.000Z",
+  "title": "Design System: Dr. Daniel Flores",
+  "extensions": {
+    "colorMeta": {
+      "ink-navy": { "role": "primary", "displayName": "Navio Abissal", "canonical": "#08121e", "tonalRamp": ["#04080e", "#070f19", "#08121e", "#0b1828", "#122438", "#22405c", "#4a6789", "#8ba2bd"] },
+      "ink-navy-raised": { "role": "primary", "displayName": "Navio Elevado", "canonical": "#0b1828", "tonalRamp": ["#050a12", "#08121e", "#0b1828", "#102238", "#183350", "#2b4d6f", "#54759a", "#93aac6"] },
+      "gold": { "role": "secondary", "displayName": "Ouro", "canonical": "#c9aa6c", "tonalRamp": ["#3a2f18", "#5c4a26", "#836b38", "#a98a4e", "#c9aa6c", "#d8be8c", "#e6d3ac", "#f3ead0"] },
+      "gold-bright": { "role": "secondary", "displayName": "Ouro Vivo", "canonical": "#d4b676", "tonalRamp": ["#3f331a", "#63512a", "#8a713b", "#b19153", "#d4b676", "#e0c893", "#ecdcb6", "#f6efd8"] },
+      "gold-deep": { "role": "secondary", "displayName": "Ouro Fundo", "canonical": "#c19a52", "tonalRamp": ["#382c17", "#574321", "#7c5f30", "#a07c40", "#c19a52", "#d3b378", "#e4cfa4", "#f2e8cf"] },
+      "ivory": { "role": "neutral", "displayName": "Marfim", "canonical": "#f3f0e9", "tonalRamp": ["#4a4740", "#6d6a61", "#928e83", "#b8b3a7", "#d6d1c6", "#e8e3da", "#f3f0e9", "#faf8f3"] },
+      "slate": { "role": "neutral", "displayName": "Ardósia", "canonical": "#a7b5c6", "tonalRamp": ["#2a323d", "#3f4a58", "#586576", "#758394", "#93a2b4", "#a7b5c6", "#c3ccd8", "#e0e5ec"] },
+      "slate-muted": { "role": "neutral", "displayName": "Ardósia Sussurro", "canonical": "#8b9aac", "tonalRamp": ["#242c35", "#38434f", "#4e5c6b", "#68788a", "#8b9aac", "#a3b0bf", "#c1cad4", "#dfe4ea"] },
+      "espresso": { "role": "neutral", "displayName": "Espresso", "canonical": "#1a1206", "tonalRamp": ["#0d0903", "#1a1206", "#2c1f0b", "#453314", "#63491d", "#87662b", "#b08f4e", "#d8c08a"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Headline do herói. Uma vez por página; ênfase por itálico em ouro pálido." },
+      "headline": { "displayName": "Headline", "purpose": "Títulos de seção (h2)." },
+      "title": { "displayName": "Title", "purpose": "Títulos de card e sub-blocos (h3)." },
+      "body": { "displayName": "Body", "purpose": "Corpo de texto, peso 300, 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Kicker/eyebrow em ouro maiúsculo com divisor dourado." }
+    },
+    "shadows": [
+      { "name": "gold-glow-cta", "value": "0 10px 36px rgba(201,170,108,0.28)", "purpose": "Brilho ambiente sob os botões primários — o foco de luz cirúrgica da página." },
+      { "name": "gold-glow-hover", "value": "0 16px 44px rgba(201,170,108,0.4)", "purpose": "Intensificação do brilho ao hover; o botão acende." },
+      { "name": "nav-cta", "value": "0 6px 24px rgba(201,170,108,0.22)", "purpose": "Sob o CTA compacto da navbar." }
+    ],
+    "motion": [
+      { "name": "state-transition", "value": "all 0.2s ease", "purpose": "Transições de estado em botões e links (hover)." },
+      { "name": "card-lift", "value": "transform 0.3s, border-color 0.3s, background 0.3s", "purpose": "Elevação tátil dos cards ao hover." },
+      { "name": "metal-flow", "value": "7s linear infinite", "purpose": "Animação do gradiente metálico do logo assinatura." },
+      { "name": "line-grow", "value": "1s ease forwards", "purpose": "Crescimento do divisor dourado ao carregar o herói." }
+    ],
+    "breakpoints": [
+      { "name": "md", "value": "768px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button (Agendar)",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "CTA principal de agendamento; gradiente dourado com brilho ambiente que se intensifica no hover.",
+      "html": "<a class=\"ds-btn-primary\" href=\"#\">Agendar consulta<svg width=\"17\" height=\"17\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14\"/><path d=\"m12 5 7 7-7 7\"/></svg></a>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; padding: 16px 34px; border-radius: 2px; background: linear-gradient(180deg, #d4b676 0%, #c19a52 100%); color: #1a1206; font-family: var(--font-manrope), sans-serif; font-size: 15px; font-weight: 600; letter-spacing: 0.4px; box-shadow: 0 10px 36px rgba(201,170,108,0.28); transition: transform 0.2s, box-shadow 0.2s; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 16px 44px rgba(201,170,108,0.4); } .ds-btn-primary:focus-visible { outline: 2px solid #d8be8c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Ação secundária sobre navio; borda translúcida que acende em ouro no hover.",
+      "html": "<a class=\"ds-btn-ghost\" href=\"#\">Conhecer áreas de atuação</a>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; gap: 10px; text-decoration: none; padding: 16px 30px; border-radius: 2px; background: transparent; color: #dde5ee; font-family: var(--font-manrope), sans-serif; font-size: 15px; font-weight: 500; letter-spacing: 0.3px; border: 1px solid rgba(255,255,255,0.18); transition: border-color 0.2s, background 0.2s; } .ds-btn-ghost:hover { border-color: rgba(201,170,108,0.6); background: rgba(201,170,108,0.06); } .ds-btn-ghost:focus-visible { outline: 2px solid #d8be8c; outline-offset: 3px; }"
+    },
+    {
+      "name": "Area Card",
+      "kind": "card",
+      "refersTo": "card-area",
+      "description": "Card de área de atuação; plano em repouso, elevação tátil e borda dourada no hover.",
+      "html": "<article class=\"ds-card-area\"><div class=\"ds-icon-tile\"><svg width=\"26\" height=\"26\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"1.6\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"/><circle cx=\"12\" cy=\"12\" r=\"6\"/><circle cx=\"12\" cy=\"12\" r=\"2\"/></svg></div><h3 class=\"ds-card-title\">Cirurgia Oncológica</h3><p class=\"ds-card-body\">Ressecção de tumores do aparelho digestivo com trabalho integrado e multidisciplinar.</p></article>",
+      "css": ".ds-card-area { display: block; position: relative; padding: 44px 36px 40px; background: rgba(255,255,255,0.022); border: 1px solid rgba(255,255,255,0.07); border-radius: 4px; transition: transform 0.3s, border-color 0.3s, background 0.3s; } .ds-card-area:hover { transform: translateY(-6px); border-color: rgba(201,170,108,0.4); background: rgba(201,170,108,0.04); } .ds-icon-tile { display: inline-flex; align-items: center; justify-content: center; width: 56px; height: 56px; border-radius: 3px; background: rgba(201,170,108,0.1); border: 1px solid rgba(201,170,108,0.28); color: #d4b676; margin-bottom: 30px; } .ds-card-title { font-family: var(--font-cormorant), Georgia, serif; font-weight: 500; font-size: 27px; margin: 0 0 14px; color: #f3f0e9; } .ds-card-body { font-family: var(--font-manrope), sans-serif; font-size: 14.5px; line-height: 1.65; color: #a7b5c6; font-weight: 300; margin: 0; }"
+    },
+    {
+      "name": "Section Kicker",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Divisor dourado + rótulo maiúsculo tracked que abre cada seção.",
+      "html": "<div class=\"ds-kicker\"><span class=\"ds-kicker-line\"></span><span class=\"ds-kicker-text\">Áreas de Atuação</span></div>",
+      "css": ".ds-kicker { display: flex; align-items: center; gap: 14px; } .ds-kicker-line { display: block; height: 1px; width: 40px; background: #c9aa6c; } .ds-kicker-text { font-family: var(--font-manrope), sans-serif; font-size: 12px; font-weight: 600; letter-spacing: 3px; text-transform: uppercase; color: #c9aa6c; }"
+    },
+    {
+      "name": "Navbar Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Link da navegação fixa; ardósia em repouso, marfim no hover.",
+      "html": "<a class=\"ds-nav-link\" href=\"#\">Consultório</a>",
+      "css": ".ds-nav-link { text-decoration: none; color: #b3c0d0; font-family: var(--font-manrope), sans-serif; font-size: 14px; font-weight: 500; letter-spacing: 0.3px; transition: color 0.2s; } .ds-nav-link:hover { color: #f3f0e9; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "O Centro Cirúrgico à Meia-Luz",
+    "overview": "O sistema é uma sala de cirurgia de alto nível vista com as luzes baixas: um ambiente escuro, controlado e silencioso, onde um foco de luz dourada e quente pousa exatamente sobre o que importa. O navio profundo não é apenas fundo — é a atmosfera de concentração e seriedade que envolve a alta complexidade. Sobre ele, o ouro é o calor humano na sala fria: presente, acolhedor, guiando o olhar sem nunca gritar. A autoridade aqui é demonstrada pela contenção, não pelo volume. A tipografia carrega a dupla natureza da marca: Cormorant serif para autoridade acadêmica e ciência; Manrope sans para cuidado e legibilidade. Rejeita a estética de clínica genérica de convênio — nada de azul-clarinho, sorrisos de stock ou diagramação de panfleto.",
+    "keyCharacteristics": [
+      "Navio escuro dominante como atmosfera de sala cirúrgica de alto nível.",
+      "Ouro caloroso e presente — o calor humano sobre o ambiente frio, não um mero clique.",
+      "Serif institucional (Cormorant) para autoridade; sans legível (Manrope) para cuidado.",
+      "Superfícies táteis que respondem ao toque; profundidade em vez de plano morto.",
+      "Restrição absoluta contra a estética de clínica de convênio."
+    ],
+    "rules": [
+      { "name": "A Regra do Ouro Caloroso", "body": "O ouro é o calor da sala — usado com generosidade em divisores, bordas, ícones e acentos para manter a paleta escura humana, nunca clínica. Mas ele nunca disputa o olhar com o marfim: o ouro guia, o marfim fala.", "section": "colors" },
+      { "name": "A Regra do Marfim Quente", "body": "Nenhum branco puro como tinta de texto. Todo título é marfim (#f3f0e9 / #f6f4ee). Branco puro sobre navio lê como frio e hospitalar — exatamente o que a marca evita.", "section": "colors" },
+      { "name": "A Regra da Serif com Autoridade", "body": "Todo título é Cormorant. A serif é a voz da autoridade acadêmica; trocá-la por sans esvazia o peso institucional.", "section": "typography" },
+      { "name": "A Regra do Corpo Leve e Arejado", "body": "Texto sobre navio usa peso 300 e line-height 1.65. Tipo claro sobre fundo escuro lê como mais fino; o respiro extra mantém a legibilidade para leitores mais velhos.", "section": "typography" },
+      { "name": "A Regra da Elevação Tátil", "body": "Superfícies respondem ao toque: cards sobem e acendem borda dourada no hover; o CTA carrega o único brilho ambiente da página. Nada de sombra cinza dura de app 2014.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do manter o navio escuro (#08121e) como atmosfera dominante — a sala à meia-luz é a identidade.",
+      "Do usar o ouro com calor e generosidade, mas deixar o marfim falar nos títulos.",
+      "Do usar sempre Cormorant nos títulos e Manrope no corpo, com corpo em peso 300 e line-height 1.65.",
+      "Do dar resposta tátil às superfícies: elevação e borda dourada no hover, brilho ambiente no CTA.",
+      "Do provar autoridade com fatos (hospitais, títulos UFRJ, trajetória) — mostrar, não afirmar.",
+      "Do garantir contraste confortável e texto generoso; parte do público é mais velha e chega sob estresse."
+    ],
+    "donts": [
+      "Don't parecer clínica genérica de convênio / material pop: sem azul-clarinho de folheto, sem sorrisos de banco de imagem, sem diagramação de panfleto.",
+      "Don't usar branco puro (#ffffff) como tinta de texto — sempre marfim quente.",
+      "Don't deixar o ouro competir com o marfim pelo olhar; o ouro guia, o marfim fala.",
+      "Don't usar gradient-text (background-clip: text) em nenhum lugar além do logo metálico assinatura.",
+      "Don't trocar a serif dos títulos por sans, nem achatar a escala tipográfica.",
+      "Don't introduzir sombras cinza duras de app 2014; a profundidade do sistema é dourada e viva.",
+      "Don't usar borda-lateral colorida (border-left/right > 1px) como acento em cards ou callouts."
+    ]
+  }
+}

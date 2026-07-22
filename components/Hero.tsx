@@ -1,223 +1,214 @@
-import { ArrowRight } from 'lucide-react'
 import { WHATSAPP_URL } from './contact'
+
+type CSSVars = React.CSSProperties & Record<`--${string}`, string>
 
 export default function Hero() {
   return (
-    <header
-      id="topo"
+    <section
+      id="top"
       style={{
         position: 'relative',
         minHeight: '100vh',
         display: 'flex',
-        alignItems: 'center',
-        backgroundImage: `
-          linear-gradient(94deg, rgba(8,18,30,0.97) 0%, rgba(8,18,30,0.86) 32%, rgba(8,18,30,0.42) 62%, rgba(8,18,30,0.62) 100%),
-          url('/images/centro-cirurgico.png')
-        `,
-        backgroundSize: 'cover',
-        backgroundPosition: 'center right',
+        alignItems: 'flex-end',
+        overflow: 'hidden',
       }}
     >
-      {/* Top + bottom fade vignette */}
+      {/* Parallax background (empty operating-room stock image) */}
+      <div
+        id="heroBg"
+        style={{
+          position: 'absolute',
+          inset: '-8% 0',
+          zIndex: 0,
+          backgroundImage: "url('/images/centro-cirurgico.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          transform: 'scale(1.15)',
+          willChange: 'transform',
+        }}
+      />
+      {/* Tonal overlay */}
       <div
         style={{
           position: 'absolute',
           inset: 0,
+          zIndex: 1,
           background:
-            'linear-gradient(180deg, rgba(8,18,30,0.55) 0%, transparent 22%, transparent 78%, rgba(8,18,30,0.9) 100%)',
-          pointerEvents: 'none',
+            'linear-gradient(180deg, rgba(6,15,30,0.78) 0%, rgba(6,15,30,0.55) 38%, rgba(6,15,30,0.82) 78%, #060f1e 100%)',
+        }}
+      />
+      {/* Radial gold glow */}
+      <div
+        style={{
+          position: 'absolute',
+          inset: 0,
+          zIndex: 1,
+          background:
+            'radial-gradient(120% 90% at 12% 88%, rgba(198,161,91,0.16) 0%, transparent 55%)',
         }}
       />
 
       <div
         style={{
           position: 'relative',
+          zIndex: 2,
           width: '100%',
-          maxWidth: '1280px',
-          margin: '0 auto',
-          padding: '140px clamp(24px, 6vw, 80px) 80px',
+          padding: '150px clamp(24px, 6vw, 120px) clamp(70px, 8vw, 120px)',
+          maxWidth: '1500px',
         }}
       >
-        <div style={{ maxWidth: '720px' }}>
-          {/* Gold divider line + specialty kicker */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '30px' }}>
-            <span
-              className="line-grow"
-              style={{
-                display: 'block',
-                height: '1px',
-                background: 'linear-gradient(90deg, #c9aa6c, transparent)',
-              }}
-            />
-            <span
-              style={{
-                fontSize: '12.5px',
-                fontWeight: 600,
-                letterSpacing: '3.5px',
-                textTransform: 'uppercase',
-                color: '#c9aa6c',
-              }}
-            >
+        {/* Kicker */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '30px', overflow: 'hidden' }}>
+          <span
+            data-reveal="line"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '16px', ['--dur']: '0.9s' } as CSSVars}
+          >
+            <span style={{ width: '46px', height: '1px', background: 'linear-gradient(90deg, #c6a15b, transparent)' }} />
+            <span style={{ fontSize: '12px', letterSpacing: '.32em', textTransform: 'uppercase', color: '#c6a15b' }}>
               Cirurgião Geral · Alta Complexidade
             </span>
-          </div>
+          </span>
+        </div>
 
-          {/* Main headline */}
-          <h1
-            style={{
-              fontFamily: 'var(--font-cormorant), Georgia, serif',
-              fontWeight: 400,
-              fontSize: 'clamp(42px, 5.8vw, 78px)',
-              lineHeight: 1.1,
-              letterSpacing: '-0.5px',
-              margin: '0 0 30px',
-              color: '#f6f4ee',
-            }}
-          >
-            Alta complexidade
-            <br />
-            tratada com{' '}
-            <em style={{ fontStyle: 'italic', color: '#d8be8c' }}>precisão absoluta</em>.
-          </h1>
+        {/* Headline */}
+        <h1
+          style={{
+            fontFamily: 'var(--font-cormorant), Georgia, serif',
+            fontWeight: 400,
+            fontSize: 'clamp(44px, 7vw, 110px)',
+            lineHeight: 1,
+            letterSpacing: '-0.015em',
+            color: '#f3efe7',
+            maxWidth: '16ch',
+          }}
+        >
+          <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.08em' }}>
+            <span data-reveal="line" style={{ display: 'block', ['--dur']: '1s', ['--d']: '120ms' } as CSSVars}>
+              Alta complexidade
+            </span>
+          </span>
+          <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.08em' }}>
+            <span data-reveal="line" style={{ display: 'block', ['--dur']: '1s', ['--d']: '230ms' } as CSSVars}>
+              tratada com
+            </span>
+          </span>
+          <span style={{ display: 'block', overflow: 'hidden', paddingBottom: '0.12em' }}>
+            <span
+              data-reveal="line"
+              style={
+                {
+                  display: 'block',
+                  fontStyle: 'italic',
+                  background: 'linear-gradient(110deg, #e6c987, #c6a15b 45%, #8a6d3b 100%)',
+                  WebkitBackgroundClip: 'text',
+                  backgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  ['--dur']: '1s',
+                  ['--d']: '340ms',
+                } as CSSVars
+              }
+            >
+              precisão absoluta.
+            </span>
+          </span>
+        </h1>
 
-          {/* Body copy */}
-          <p
-            style={{
-              fontSize: 'clamp(16px, 1.5vw, 19px)',
-              lineHeight: 1.65,
-              color: '#aebccd',
+        <p
+          data-reveal="up"
+          style={
+            {
+              marginTop: '34px',
+              maxWidth: '56ch',
+              fontSize: 'clamp(16px, 1.25vw, 19px)',
+              lineHeight: 1.72,
+              color: '#b6b0a5',
               fontWeight: 300,
-              maxWidth: '560px',
-              margin: '0 0 42px',
-            }}
-          >
-            Cirurgia do aparelho digestivo conduzida com tecnologia de ponta e o rigor dos maiores
-            centros cirúrgicos do país. Cada decisão guiada por experiência, ciência e cuidado
-            humano.
-          </p>
+              ['--d']: '560ms',
+            } as CSSVars
+          }
+        >
+          Cirurgia do aparelho digestivo conduzida com tecnologia de ponta e o rigor dos maiores
+          centros cirúrgicos do país. Cada decisão guiada por experiência, ciência e cuidado humano.
+        </p>
 
-          {/* CTA buttons */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: '16px' }}>
-            <a
-              href={WHATSAPP_URL}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:-translate-y-0.5 hover:shadow-[0_16px_44px_rgba(201,170,108,0.4)] transition-all duration-200"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                textDecoration: 'none',
-                padding: '16px 34px',
-                borderRadius: '2px',
-                background: 'linear-gradient(180deg, #d4b676 0%, #c19a52 100%)',
-                color: '#1a1206',
-                fontSize: '15px',
-                fontWeight: 600,
-                letterSpacing: '0.4px',
-                boxShadow: '0 10px 36px rgba(201,170,108,0.28)',
-              }}
-            >
-              Agendar consulta
-              <ArrowRight size={17} />
-            </a>
-
-            <a
-              href="#atuacao"
-              className="hover:border-[rgba(201,170,108,0.6)] hover:bg-[rgba(201,170,108,0.06)] transition-all duration-200"
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '10px',
-                textDecoration: 'none',
-                padding: '16px 30px',
-                borderRadius: '2px',
-                background: 'transparent',
-                color: '#dde5ee',
-                fontSize: '15px',
-                fontWeight: 500,
-                letterSpacing: '0.3px',
-                border: '1px solid rgba(255,255,255,0.18)',
-              }}
-            >
-              Conhecer áreas de atuação
-            </a>
-          </div>
-
-          {/* Stats bar */}
-          <div
+        <div
+          data-reveal="up"
+          style={{ display: 'flex', flexWrap: 'wrap', gap: '16px', marginTop: '44px', ['--d']: '700ms' } as CSSVars}
+        >
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="hover:-translate-y-[3px] hover:shadow-[0_18px_40px_-14px_rgba(198,161,91,0.6)] transition-all duration-300"
             style={{
-              display: 'flex',
-              flexWrap: 'wrap',
-              gap: 'clamp(24px, 4vw, 56px)',
-              marginTop: '64px',
-              paddingTop: '34px',
-              borderTop: '1px solid rgba(255,255,255,0.08)',
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '17px 34px',
+              background: 'linear-gradient(110deg, #e6c987, #c6a15b)',
+              color: '#060f1e',
+              borderRadius: '100px',
+              fontSize: '13px',
+              letterSpacing: '.1em',
+              textTransform: 'uppercase',
+              fontWeight: 500,
             }}
           >
-            <div>
-              <div
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontSize: '34px',
-                  fontWeight: 500,
-                  color: '#f3f0e9',
-                  lineHeight: 1,
-                }}
-              >
-                +20
-              </div>
-              <div
-                style={{ fontSize: '12.5px', color: '#8b9aac', letterSpacing: '0.4px', marginTop: '6px' }}
-              >
-                anos nos melhores hospitais do Rio
-              </div>
-            </div>
-
-            <div style={{ width: '1px', background: 'rgba(255,255,255,0.08)' }} />
-
-            <div>
-              <div
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontSize: '34px',
-                  fontWeight: 500,
-                  color: '#f3f0e9',
-                  lineHeight: 1,
-                }}
-              >
-                Leblon
-              </div>
-              <div
-                style={{ fontSize: '12.5px', color: '#8b9aac', letterSpacing: '0.4px', marginTop: '6px' }}
-              >
-                consultório no Rio de Janeiro
-              </div>
-            </div>
-
-            <div style={{ width: '1px', background: 'rgba(255,255,255,0.08)' }} />
-
-            <div>
-              <div
-                style={{
-                  fontFamily: 'var(--font-cormorant), Georgia, serif',
-                  fontSize: '34px',
-                  fontWeight: 500,
-                  color: '#f3f0e9',
-                  lineHeight: 1,
-                }}
-              >
-                UFRJ
-              </div>
-              <div
-                style={{ fontSize: '12.5px', color: '#8b9aac', letterSpacing: '0.4px', marginTop: '6px' }}
-              >
-                formação, residência e aulas para a graduação
-              </div>
-            </div>
-          </div>
+            Agendar consulta
+          </a>
+          <a
+            href="#atuacao"
+            className="hover:border-[#c6a15b] hover:!text-[#e6c987] transition-colors duration-300"
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: '12px',
+              padding: '17px 34px',
+              border: '1px solid rgba(255,255,255,0.22)',
+              color: '#ece7df',
+              borderRadius: '100px',
+              fontSize: '13px',
+              letterSpacing: '.1em',
+              textTransform: 'uppercase',
+            }}
+          >
+            Conhecer áreas de atuação
+          </a>
         </div>
       </div>
-    </header>
+
+      {/* Scroll indicator */}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: '26px',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          zIndex: 2,
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '10px',
+        }}
+      >
+        <span style={{ fontSize: '10px', letterSpacing: '.3em', textTransform: 'uppercase', color: '#8b857b' }}>
+          Role
+        </span>
+        <span style={{ position: 'relative', width: '1px', height: '40px', background: 'rgba(255,255,255,0.15)', overflow: 'hidden' }}>
+          <span
+            style={{
+              position: 'absolute',
+              top: 0,
+              left: 0,
+              width: '1px',
+              height: '14px',
+              background: '#c6a15b',
+              animation: 'scrollpulse 2.2s ease-in-out infinite',
+            }}
+          />
+        </span>
+      </div>
+    </section>
   )
 }
