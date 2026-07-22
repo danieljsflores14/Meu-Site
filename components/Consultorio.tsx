@@ -141,7 +141,7 @@ export default function Consultorio() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/consultorio-sala.jpg"
+              src="/images/consultorio-sala.webp"
               alt="Consultório no Leblon"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />
@@ -154,7 +154,7 @@ export default function Consultorio() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/consultorio-vista.jpg"
+              src="/images/consultorio-vista.webp"
               alt="Vista para o mar — Leblon"
               style={{ width: '100%', height: '100%', objectFit: 'cover' }}
             />

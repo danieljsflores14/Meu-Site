@@ -109,7 +109,7 @@ export default function Trajetoria() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/dr-daniel-rosto.png"
+              src="/images/dr-daniel-retrato.webp"
               alt="Dr. Daniel Flores — retrato"
               style={{ width: '100%', flex: '1 1 0', minHeight: 0, objectFit: 'cover', objectPosition: 'center 22%' }}
             />
@@ -140,7 +140,7 @@ export default function Trajetoria() {
           >
             {/* eslint-disable-next-line @next/next/no-img-element */}
             <img
-              src="/images/dr-daniel-centro-cirurgico.jpg"
+              src="/images/dr-daniel-centro-cirurgico.webp"
               alt="Dr. Daniel Flores em centro cirúrgico"
               style={{
                 width: '100%',

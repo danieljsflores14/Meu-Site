@@ -7,7 +7,44 @@ export const metadata: Metadata = {
   title: 'Trajetória | Dr. Daniel Flores',
   description:
     'A trajetória do Dr. Daniel Flores: graduação, residência e dez anos ministrando aulas para a graduação na UFRJ, staff da cirurgia do pâncreas, membro da primeira equipe de transplante de pâncreas do Rio de Janeiro e, desde 2009, cirurgião do Hospital Federal de Ipanema.',
-  alternates: { canonical: '/sobre' },
+  alternates: { canonical: '/sobre/' },
+  openGraph: {
+    type: 'profile',
+    locale: 'pt_BR',
+    siteName: 'Dr. Daniel Flores',
+    title: 'Trajetória | Dr. Daniel Flores',
+    description:
+      'UFRJ, dez anos de docência, staff da cirurgia do pâncreas e primeira equipe de transplante de pâncreas do Rio de Janeiro.',
+    url: '/sobre/',
+    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Trajetória | Dr. Daniel Flores',
+    description:
+      'UFRJ, dez anos de docência, staff da cirurgia do pâncreas e primeira equipe de transplante de pâncreas do Rio de Janeiro.',
+    images: ['/images/og-image.jpg'],
+  },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Início', item: 'https://drdanielflores.com.br/' },
+    {
+      '@type': 'ListItem',
+      position: 2,
+      name: 'Trajetória',
+      item: 'https://drdanielflores.com.br/sobre/',
+    },
+  ],
+}
+
+const profilePageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfilePage',
+  mainEntity: { '@id': 'https://drdanielflores.com.br/#physician' },
 }
 
 const timeline = [
@@ -46,6 +83,14 @@ const timeline = [
 export default function SobrePage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+      />
       <Navbar />
       <main>
         {/* Page header */}

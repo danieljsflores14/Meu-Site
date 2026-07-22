@@ -1,10 +1,10 @@
 type CSSVars = React.CSSProperties & Record<`--${string}`, string>
 
 const hospitais = [
-  { name: 'Copa Star', delay: '0ms', img: '/images/hospital-copa-star.jpg' },
-  { name: 'Samaritano Barra', delay: '120ms', img: '/images/hospital-samaritano-barra.jpg' },
-  { name: "Barra D'Or", delay: '240ms', img: '/images/hospital-barra-dor.jpg' },
-  { name: 'Samaritano Botafogo', delay: '360ms', img: '/images/hospital-samaritano-botafogo.jpg' },
+  { name: 'Copa Star', delay: '0ms', img: '/images/hospital-copa-star.webp' },
+  { name: 'Samaritano Barra', delay: '120ms', img: '/images/hospital-samaritano-barra.webp' },
+  { name: "Barra D'Or", delay: '240ms', img: '/images/hospital-barra-dor.webp' },
+  { name: 'Samaritano Botafogo', delay: '360ms', img: '/images/hospital-samaritano-botafogo.webp' },
 ]
 
 export default function Hospitais() {
