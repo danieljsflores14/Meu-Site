@@ -2,15 +2,21 @@ import Link from 'next/link'
 import { CRM, PHONE_DISPLAY, RQE, WHATSAPP_URL } from './contact'
 
 const navLinks = [
+  { href: '/cirurgias-oncologicas/', label: 'Cirurgias Oncológicas' },
   { href: '/#atuacao', label: 'Áreas de Atuação' },
-  { href: '/sobre', label: 'Trajetória' },
+  { href: '/sobre/', label: 'Trajetória' },
   { href: '/#hospitais', label: 'Hospitais' },
   { href: '/#consultorio', label: 'Consultório' },
 ]
 
 export default function Footer() {
   return (
-    <footer style={{ borderTop: '1px solid rgba(255,255,255,0.09)', padding: 'clamp(64px, 7vw, 100px) clamp(24px, 6vw, 120px) 40px' }}>
+    <footer
+      style={{
+        borderTop: '1px solid rgba(255,255,255,0.09)',
+        padding: 'clamp(64px, 7vw, 100px) clamp(24px, 6vw, 120px) 40px',
+      }}
+    >
       <div
         style={{
           maxWidth: '1600px',
@@ -20,7 +26,6 @@ export default function Footer() {
           gap: 'clamp(30px, 4vw, 60px)',
         }}
       >
-        {/* Brand */}
         <div style={{ minWidth: 0, gridColumn: 'auto' }}>
           <div style={{ display: 'flex', alignItems: 'center', gap: '14px', marginBottom: '22px' }}>
             <span
@@ -40,18 +45,41 @@ export default function Footer() {
             >
               DF
             </span>
-            <span style={{ fontFamily: 'var(--font-cormorant), Georgia, serif', fontSize: '21px', letterSpacing: '.14em' }}>
+            <span
+              style={{
+                fontFamily: 'var(--font-cormorant), Georgia, serif',
+                fontSize: '21px',
+                letterSpacing: '.14em',
+              }}
+            >
               DR. DANIEL FLORES
             </span>
           </div>
-          <p style={{ maxWidth: '42ch', fontSize: '14px', lineHeight: 1.75, color: '#8b857b', fontWeight: 300 }}>
-            Cirurgião geral com foco em alta complexidade: cirurgia oncológica, hepatobiliopancreática,
-            emergências e cirurgia robótica e minimamente invasiva.
+          <p
+            style={{
+              maxWidth: '42ch',
+              fontSize: '14px',
+              lineHeight: 1.75,
+              color: '#8b857b',
+              fontWeight: 300,
+            }}
+          >
+            Cirurgião geral com foco em alta complexidade: cirurgia oncológica,
+            hepatobiliopancreática, tumores neuroendócrinos, emergências e cirurgia robótica e
+            minimamente invasiva.
           </p>
         </div>
 
         <div>
-          <div style={{ fontSize: '11px', letterSpacing: '.24em', textTransform: 'uppercase', color: '#c6a15b', marginBottom: '22px' }}>
+          <div
+            style={{
+              fontSize: '11px',
+              letterSpacing: '.24em',
+              textTransform: 'uppercase',
+              color: '#c6a15b',
+              marginBottom: '22px',
+            }}
+          >
             Navegação
           </div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '13px' }}>
@@ -64,10 +92,20 @@ export default function Footer() {
         </div>
 
         <div>
-          <div style={{ fontSize: '11px', letterSpacing: '.24em', textTransform: 'uppercase', color: '#c6a15b', marginBottom: '22px' }}>
+          <div
+            style={{
+              fontSize: '11px',
+              letterSpacing: '.24em',
+              textTransform: 'uppercase',
+              color: '#c6a15b',
+              marginBottom: '22px',
+            }}
+          >
             Registro
           </div>
-          <div style={{ fontSize: '14px', lineHeight: 1.8, color: '#b6b0a5', fontWeight: 300 }}>
+          <div
+            style={{ fontSize: '14px', lineHeight: 1.8, color: '#b6b0a5', fontWeight: 300 }}
+          >
             {CRM}
             <br />
             {RQE}
@@ -77,13 +115,29 @@ export default function Footer() {
         </div>
 
         <div>
-          <div style={{ fontSize: '11px', letterSpacing: '.24em', textTransform: 'uppercase', color: '#c6a15b', marginBottom: '22px' }}>
+          <div
+            style={{
+              fontSize: '11px',
+              letterSpacing: '.24em',
+              textTransform: 'uppercase',
+              color: '#c6a15b',
+              marginBottom: '22px',
+            }}
+          >
             Contato
           </div>
-          <a href={WHATSAPP_URL} target="_blank" rel="noopener noreferrer" style={{ fontSize: '14px', color: '#b6b0a5' }}>
+          <a
+            href={WHATSAPP_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Entrar em contato pelo WhatsApp; abre em nova janela"
+            style={{ fontSize: '14px', color: '#b6b0a5' }}
+          >
             {PHONE_DISPLAY}
           </a>
-          <div style={{ fontSize: '12.5px', color: '#7a746b', marginTop: '6px' }}>WhatsApp &amp; telefone</div>
+          <div style={{ fontSize: '12.5px', color: '#7a746b', marginTop: '6px' }}>
+            WhatsApp &amp; telefone
+          </div>
         </div>
       </div>
 

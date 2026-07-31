@@ -21,11 +21,16 @@ Janeiro. CRM-RJ 52.72115-8.
 app/
   page.tsx          # Home: Hero → Áreas → Trajetória → Hospitais → Consultório
   sobre/page.tsx    # Subpágina /sobre — linha do tempo da carreira
+  cirurgias-oncologicas/
+    page.tsx        # Hub com as principais cirurgias oncológicas
+    [slug]/page.tsx # Oito páginas de procedimentos geradas estaticamente
   layout.tsx        # Fontes, metadata e tema base
   sitemap.ts        # Gera sitemap.xml (estático)
   robots.ts         # Gera robots.txt (estático)
 components/         # Navbar, Hero, AreasDeAtuacao, Trajetoria, Hospitais,
-                    # Consultorio, Footer + contact.ts (telefone/WhatsApp)
+                    # Consultorio, páginas de procedimentos, Footer
+data/
+  surgeries.ts      # Conteúdo médico, FAQs, referências e relações entre páginas
 public/images/      # logo.png, fotos do consultório, imagem do hero
 ```
 
@@ -45,12 +50,9 @@ npm run dev     # http://localhost:3000
 npm run build   # gera o site estático na pasta out/
 ```
 
-Depois, envie **o conteúdo** de `out/` para a pasta `public_html` do domínio
-na Hostinger (o `index.html` precisa ficar na raiz de `public_html`).
-Atalho: compacte o conteúdo de `out/` em um zip, faça upload pelo Gerenciador
-de Arquivos e extraia dentro de `public_html`.
+O fluxo principal é automático: todo push na branch `main` aciona o GitHub
+Actions, que gera `out/` e publica o resultado na branch `hostinger-deploy`,
+sincronizada com a Hostinger.
 
-## Pendências conhecidas
-
-- 3 cards de hospitais ainda são placeholders (aguardando nomes/logos)
-- Foto/retrato profissional do médico para a página /sobre
+O envio manual do conteúdo de `out/` para `public_html` deve ser usado apenas
+como contingência.

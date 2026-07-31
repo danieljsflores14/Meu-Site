@@ -15,11 +15,21 @@ const physicianSchema = {
   '@id': 'https://drdanielflores.com.br/#physician',
   name: 'Dr. Daniel Flores',
   description:
-    'Cirurgião geral dedicado à alta complexidade: cirurgia oncológica do aparelho digestivo, cirurgia hepatobiliopancreática, emergências cirúrgicas e cirurgia robótica e minimamente invasiva.',
+    'Cirurgião geral dedicado à alta complexidade: cirurgia oncológica do aparelho digestivo, cirurgia hepatobiliopancreática, tumores neuroendócrinos, emergências cirúrgicas e cirurgia robótica e minimamente invasiva.',
   url: 'https://drdanielflores.com.br/',
   image: 'https://drdanielflores.com.br/images/dr-daniel-retrato.webp',
   telephone: '+5521992932940',
   medicalSpecialty: ['Surgical', 'Oncologic'],
+  knowsAbout: [
+    'Duodenopancreatectomia (cirurgia de Whipple)',
+    'Pancreatectomia distal',
+    'Hepatectomia e cirurgia de metástases hepáticas',
+    'Cirurgia dos tumores das vias biliares',
+    'Gastrectomia oncológica',
+    'Cirurgia do câncer de cólon e reto',
+    'Tumores neuroendócrinos do intestino delgado',
+    'Tumores neuroendócrinos do pâncreas',
+  ],
   identifier: [
     { '@type': 'PropertyValue', propertyID: 'CRM-RJ', value: '52.72115-8' },
     { '@type': 'PropertyValue', propertyID: 'RQE', value: '56396' },
@@ -49,8 +59,11 @@ export default function Home() {
   return (
     <>
       <script
+        id="physician-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(physicianSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(physicianSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <Navbar />
       <main>

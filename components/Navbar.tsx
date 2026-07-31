@@ -1,9 +1,12 @@
+import { Calendar } from 'lucide-react'
 import Link from 'next/link'
+import MobileNav from './MobileNav'
 import { WHATSAPP_URL } from './contact'
 
-const navLinks = [
+const navigationLinks = [
+  { href: '/cirurgias-oncologicas/', label: 'Cirurgias' },
   { href: '/#atuacao', label: 'Áreas de Atuação' },
-  { href: '/sobre', label: 'Trajetória' },
+  { href: '/sobre/', label: 'Trajetória' },
   { href: '/#hospitais', label: 'Hospitais' },
   { href: '/#consultorio', label: 'Consultório' },
 ]
@@ -12,6 +15,8 @@ export default function Navbar() {
   return (
     <nav
       id="nav"
+      aria-label="Navegação principal"
+      className="site-navbar"
       style={{
         position: 'fixed',
         top: 0,
@@ -26,7 +31,17 @@ export default function Navbar() {
         transition: 'background .5s ease, border-color .5s ease, backdrop-filter .5s ease',
       }}
     >
-      <a href="#top" style={{ display: 'flex', alignItems: 'center', gap: '14px', color: '#ece7df' }}>
+      <Link
+        href="/"
+        className="site-navbar__logo"
+        style={{
+          display: 'flex',
+          alignItems: 'center',
+          gap: '14px',
+          color: '#ece7df',
+          textDecoration: 'none',
+        }}
+      >
         <span
           style={{
             display: 'flex',
@@ -45,7 +60,7 @@ export default function Navbar() {
         >
           DF
         </span>
-        <span style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
+        <span className="site-navbar__brand-copy" style={{ display: 'flex', flexDirection: 'column', lineHeight: 1.15 }}>
           <span
             style={{
               fontFamily: 'var(--font-cormorant), serif',
@@ -67,25 +82,40 @@ export default function Navbar() {
             Cirurgião Geral
           </span>
         </span>
-      </a>
+      </Link>
 
-      <div style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 2.6vw, 44px)' }}>
-        <div className="nav-links" style={{ display: 'flex', alignItems: 'center', gap: 'clamp(20px, 2.6vw, 44px)' }}>
-          {navLinks.map(({ href, label }) => (
+      <div
+        className="site-navbar__actions"
+        style={{ display: 'flex', alignItems: 'center', gap: 'clamp(12px, 2vw, 28px)' }}
+      >
+        <div
+          className="nav-links desktop-nav-links"
+          style={{ alignItems: 'center', gap: 'clamp(20px, 2.6vw, 44px)' }}
+        >
+          {navigationLinks.map((item) => (
             <Link
-              key={href}
-              href={href}
-              style={{ color: '#c8c2b8', fontSize: '13px', letterSpacing: '.06em', whiteSpace: 'nowrap' }}
+              key={item.href}
+              href={item.href}
+              style={{
+                color: '#c8c2b8',
+                fontSize: '13px',
+                letterSpacing: '.06em',
+                whiteSpace: 'nowrap',
+              }}
             >
-              {label}
+              {item.label}
             </Link>
           ))}
         </div>
+
+        <MobileNav links={navigationLinks} />
+
         <a
           href={WHATSAPP_URL}
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:bg-[#c6a15b] hover:!text-[#060f1e] hover:border-[#c6a15b] transition-colors duration-300"
+          className="site-navbar__cta"
+          aria-label="Agendar consulta pelo WhatsApp; abre em nova janela"
           style={{
             display: 'inline-flex',
             alignItems: 'center',
@@ -100,7 +130,8 @@ export default function Navbar() {
             whiteSpace: 'nowrap',
           }}
         >
-          Agendar
+          <Calendar size={15} aria-hidden="true" />
+          <span>Agendar</span>
         </a>
       </div>
     </nav>

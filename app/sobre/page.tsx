@@ -16,7 +16,14 @@ export const metadata: Metadata = {
     description:
       'UFRJ, dez anos de docência, staff da cirurgia do pâncreas e primeira equipe de transplante de pâncreas do Rio de Janeiro.',
     url: '/sobre/',
-    images: [{ url: '/images/og-image.jpg', width: 1200, height: 630 }],
+    images: [
+      {
+        url: '/images/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Dr. Daniel Flores — Cirurgião Geral',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
@@ -84,12 +91,18 @@ export default function SobrePage() {
   return (
     <>
       <script
+        id="about-breadcrumb-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(breadcrumbSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <script
+        id="profile-page-schema"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(profilePageSchema) }}
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(profilePageSchema).replace(/</g, '\\u003c'),
+        }}
       />
       <Navbar />
       <main>

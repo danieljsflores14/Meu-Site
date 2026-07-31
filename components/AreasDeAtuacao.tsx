@@ -1,3 +1,6 @@
+import { ArrowUpRight } from 'lucide-react'
+import Link from 'next/link'
+
 type CSSVars = React.CSSProperties & Record<`--${string}`, string>
 
 const areas = [
@@ -5,13 +8,15 @@ const areas = [
     num: '01',
     delay: '0ms',
     title: 'Cirurgia Oncológica',
-    desc: 'Ressecção de tumores do aparelho digestivo com trabalho integrado e multidisciplinar — o tratamento é planejado em conjunto com oncologista, clínico, radioterapeuta e demais especialistas, definindo a melhor estratégia para cada paciente.',
+    desc: 'Ressecção de tumores do aparelho digestivo com trabalho integrado e multidisciplinar, incluindo expertise no tratamento cirúrgico de tumores neuroendócrinos do intestino delgado e do pâncreas.',
+    href: '/cirurgias-oncologicas/',
   },
   {
     num: '02',
     delay: '100ms',
     title: 'Cirurgia HPB',
     desc: 'Cirurgia hepatobiliopancreática de alta complexidade — fígado, vias biliares e pâncreas — com técnica refinada e segurança em cada etapa.',
+    href: '/cirurgias-oncologicas/',
   },
   {
     num: '03',
@@ -31,13 +36,28 @@ export default function AreasDeAtuacao() {
   return (
     <section
       id="atuacao"
-      style={{ padding: 'clamp(90px, 11vw, 170px) clamp(24px, 6vw, 120px)', maxWidth: '1600px', margin: '0 auto' }}
+      style={{
+        padding: 'clamp(90px, 11vw, 170px) clamp(24px, 6vw, 120px)',
+        maxWidth: '1600px',
+        margin: '0 auto',
+      }}
     >
       <div style={{ display: 'flex', alignItems: 'center', gap: '16px', marginBottom: '28px' }}>
-        <span style={{ width: '46px', height: '1px', background: 'linear-gradient(90deg, #c6a15b, transparent)' }} />
+        <span
+          style={{
+            width: '46px',
+            height: '1px',
+            background: 'linear-gradient(90deg, #c6a15b, transparent)',
+          }}
+        />
         <span
           data-reveal="up"
-          style={{ fontSize: '12px', letterSpacing: '.32em', textTransform: 'uppercase', color: '#c6a15b' }}
+          style={{
+            fontSize: '12px',
+            letterSpacing: '.32em',
+            textTransform: 'uppercase',
+            color: '#c6a15b',
+          }}
         >
           Áreas de Atuação
         </span>
@@ -87,11 +107,15 @@ export default function AreasDeAtuacao() {
 
       <div
         className="areas-grid"
-        style={{ gap: '1px', background: 'rgba(255,255,255,0.08)', border: '1px solid rgba(255,255,255,0.08)' }}
+        style={{
+          gap: '1px',
+          background: 'rgba(255,255,255,0.08)',
+          border: '1px solid rgba(255,255,255,0.08)',
+        }}
       >
-        {areas.map((a) => (
-          <div
-            key={a.num}
+        {areas.map((area) => (
+          <article
+            key={area.num}
             data-reveal="up"
             className="area-card"
             style={
@@ -102,11 +126,18 @@ export default function AreasDeAtuacao() {
                 display: 'flex',
                 flexDirection: 'column',
                 transition: 'background .5s ease',
-                ['--d']: a.delay,
+                ['--d']: area.delay,
               } as CSSVars
             }
           >
-            <div style={{ display: 'flex', alignItems: 'baseline', justifyContent: 'space-between', marginBottom: 'auto' }}>
+            <div
+              style={{
+                display: 'flex',
+                alignItems: 'baseline',
+                justifyContent: 'space-between',
+                marginBottom: 'auto',
+              }}
+            >
               <span
                 style={{
                   fontFamily: 'var(--font-cormorant), Georgia, serif',
@@ -115,7 +146,7 @@ export default function AreasDeAtuacao() {
                   color: 'rgba(198,161,91,0.45)',
                 }}
               >
-                {a.num}
+                {area.num}
               </span>
               <span
                 aria-hidden="true"
@@ -143,10 +174,26 @@ export default function AreasDeAtuacao() {
                 letterSpacing: '-0.005em',
               }}
             >
-              {a.title}
+              {area.title}
             </h3>
-            <p style={{ fontSize: '14.5px', lineHeight: 1.72, color: '#948e84', fontWeight: 300 }}>{a.desc}</p>
-          </div>
+            <p
+              style={{
+                fontSize: '14.5px',
+                lineHeight: 1.72,
+                color: '#948e84',
+                fontWeight: 300,
+              }}
+            >
+              {area.desc}
+            </p>
+
+            {'href' in area && area.href && (
+              <Link href={area.href} className="area-card__link">
+                Conhecer as cirurgias
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </Link>
+            )}
+          </article>
         ))}
       </div>
     </section>
