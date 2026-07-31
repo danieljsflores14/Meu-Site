@@ -1,0 +1,32 @@
+ErrorDocument 404 /404.html
+
+RewriteEngine On
+
+# 1) Forçar HTTPS + remover www em um único 301 (evita cadeia de redirects)
+RewriteCond %{HTTP_HOST} ^www\.drdanielflores\.com\.br$ [NC]
+RewriteRule ^(.*)$ https://drdanielflores.com.br/$1 [R=301,L]
+
+RewriteCond %{HTTPS} !=on
+RewriteRule ^(.*)$ https://drdanielflores.com.br/$1 [R=301,L]
+
+# 2) HTML sempre revalidado no navegador (atualizações aparecem na hora)
+<IfModule mod_headers.c>
+  <FilesMatch "\.html$">
+    Header set Cache-Control "no-cache, must-revalidate"
+  </FilesMatch>
+</IfModule>
+
+# 3) Cache de arquivos estáticos (melhora Core Web Vitals em visitas repetidas)
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType image/webp  "access plus 6 months"
+  ExpiresByType image/jpeg  "access plus 6 months"
+  ExpiresByType image/png   "access plus 6 months"
+  ExpiresByType text/css    "access plus 1 month"
+  ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+
+# 4) Compressão de texto
+<IfModule mod_deflate.c>
+  AddOutputFilterByType DEFLATE text/html text/css application/javascript application/json image/svg+xml
+</IfModule>
